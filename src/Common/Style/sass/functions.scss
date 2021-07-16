@@ -1,0 +1,105 @@
+
+//**********padding , margin  and fontsize   *********
+$PZS: 6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,48;
+
+@each $PZ in $PZS {
+  $PZPx: $PZ + px;
+  .p-#{$PZ} {
+    padding: $PZPx !important;
+
+  }
+  .pr-#{$PZ} {
+    padding-right: $PZPx !important;
+
+  }
+  .pl-#{$PZ} {
+    padding-left: $PZPx !important;
+
+  }
+  .pt-#{$PZ} {
+    padding-top: $PZPx !important;
+
+  }
+  .pb-#{$PZ} {
+    padding-bottom: $PZPx !important;
+
+  } .m-#{$PZ} {
+    margin: $PZPx !important;
+
+  }
+  .mr-#{$PZ} {
+    margin-right: $PZPx !important;
+
+  }
+  .ml-#{$PZ} {
+    margin-left: $PZPx !important;
+
+  }
+  .mt-#{$PZ} {
+    margin-top: $PZPx !important;
+
+  }
+  .mb-#{$PZ} {
+    margin-bottom: $PZPx !important;
+
+  }
+  .Fs-#{$PZ} {
+    font-size: $PZPx !important;
+
+  }
+};
+
+//*********ZIndex*********
+$z:1;
+@while $z < 10 {
+  .zIndex-#{$z} {
+    z-index:  $z;
+  }
+  .opacity-#{$z}{
+    opacity:$z/10 ;
+  }
+  $z: $z + 1;
+}
+
+
+//**********font-weight*********
+$fw:100;
+@while $fw < 1000 {
+  .font-weight-#{$fw} {
+    font-weight:  $fw;
+  }
+  $fw: $fw + 100;
+};
+
+
+//**********width and height *********
+$w:5;
+@while $w < 100 {
+  $width: percentage($w/100);
+  .w-#{$w} {
+    width:  $width;
+  }
+    .h-#{$w} {
+      height:  $width;
+    }
+  $w: $w + 5;
+};
+
+
+
+//@function bottom-shadow($depth) {
+//  $primary-offset: nth($shadowOffsetsBottom, $depth) * 1px;
+//  $blur: nth($shadowBlursBottom, $depth) * 5px;
+//  $color: rgba(black, nth($shadowOpacitiesBottom, $depth));
+//  @return 0 $primary-offset $blur $color;
+//}
+//
+//@mixin depth($depth) {
+//  @if $depth < 1 {
+//    box-shadow: none;
+//  } @else if $depth > 5 {
+//    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+//  } @else {
+//    box-shadow: bottom-shadow($depth), top-shadow($depth);
+//  }
+//}

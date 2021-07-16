@@ -1,0 +1,125 @@
+
+//$bg-main:#E8E8E8;
+$bg-main:#FFFFFF;
+$bg-modal:#FFFFFF;
+$color-modal:#FFFFFF;
+$secondModal:rgba(255,255,255,0.6);
+$font-color-base:#2C3544;
+$font-color-second:#89929D;
+$font-color-third:#6D7076;
+$blue:#0060D3;
+$Lightblue: #2FA4ED;
+$NavActive: #25A4ED;
+$Picton : #2F93EE;
+$RoyalBlue: #6D4BF0;
+$White:#FFFFFF;
+$unSelect:#AFB9C5;
+$Gray:#F4F5F7;
+$Line:#E8E8E8;
+$Gallery:#EDEDED;
+$UnSelect:#D9D9D7;
+$Iron:#E4E5E7;
+$Geyser:#DDE1E6;
+$PattensBlue:#DDF7FF;
+$Alto:#DCDCDC;
+$Manatee:#9599A1;
+$GrayNurse:#2C3544;
+$OuterSpace:#2D3436;
+$Scorpion:#595959;
+$OffYellow:#FEF8E3;
+$light-theme:true;
+$Shark:#1C1C1E;
+$Carnation:#F0505D;
+$EbonyClay:#2C3544;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//background-color: #FEF8E3;
+$BoxHover: rgba(247,248,249,0.25);
+
+:export {
+
+
+  //$bg-modal:#FFFFFF;
+  //$color-modal:#FFFFFF;
+  //
+  // $font-color-second:#89929D;
+  //$font-color-third:#6D7076;
+  //$blue:#0060D3;
+  //$Lightblue: #2FA4ED;
+  //$NavActive: #25A4ED;
+  //$Picton : #2F93EE;
+  //$RoyalBlue: #6D4BF0;
+  //$White:#FFFFFF;
+  //$unSelect:#AFB9C5;
+  //$Gray:#F4F5F7;
+  //$Line:#E8E8E8;
+  //$Gallery:#EDEDED;
+  //$UnSelect:#D9D9D7;
+  //$Iron:#E4E5E7;
+
+
+
+
+
+
+  fontColorBase: $font-color-base;
+  //Iron: $Iron;
+  //PattensBlue: $PattensBlue;
+  //Geyser: $Geyser;
+  //Alto: $Alto;
+  //Manatee: $Manatee;
+  //OuterSpace: $OuterSpace;
+  //Scorpion: $Scorpion;
+  //BoxHover: $BoxHover;
+  //bg-modal: $bg-modal;
+  //BurningOrange:$BurningOrange
+}
+
+
+//****Style*****
+.bg-home-footer{
+
+  background-image : url( ../../img/bg/footer-illustration.png )    ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 264px;
+  width: 100%;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  //border:4px solid rgba(214,214,214) !important;
+  border:4px solid #2FA4ED !important;
+  align-items: center;
+  background-color: #2FA4ED !important;
+  /*background: var(--swiper-pagination-color, var(--swiper-theme-color));*/
+}
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  border-radius: 100%;
+  background-color: #d6d6d6 !important;
+  //background-color: black !important;
+ opacity: 0.6  !important;;
+}
+
+
+
+@import "styleSass";

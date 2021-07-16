@@ -1,0 +1,161 @@
+.overflow-x-hidden{
+    overflow-x: hidden;
+}
+.overflow-y-scroll{
+    overflow-y: scroll;
+}
+.overflow-y-hidden{
+    overflow-y: hidden;
+}
+
+
+.object-fit-cover{
+    object-fit: cover;
+}
+.bg-cover{
+    background-size: cover;
+}
+
+.line-through{
+    text-decoration: line-through
+}
+
+.rtl{
+    direction: rtl;
+}
+.ltr{
+    direction: ltr;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.centered-axis-xy {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.centered-axis-x {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.centered-axis-x-start-y {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,0%);
+}
+
+
+.whiteSpace-pre-wrap{
+    white-space: pre-wrap;
+}
+
+
+.point-none{
+    pointer-events:none;
+}
+.outline-none{
+    outline: none;
+}
+.outline-none:hover{
+    outline: none;
+}.outline-none:active{
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************transition*********/
+
+/******fade-Enter*****/
+
+.fadeEnter-enter .mainContent .btn{
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.fadeEnter-enter-active .mainContent {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fadeEnter-exit .mainContent {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fadeEnter-exit-active .mainContent {
+    opacity: 0;
+    transform: translateX(100%);
+}
+.fadeEnter-enter-active .mainContent,
+.fadeEnter-exit-active .mainContent {
+    transition: opacity 500ms, transform 500ms;
+}
+
+
+/******fade-exit*****/
+
+.fadeExit-enter .mainContent  {
+    opacity: 0;
+    transform: translateX(100%);
+}
+.fadeExit-enter-active .mainContent {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fadeExit-exit .mainContent {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.fadeExit-exit-active .mainContent {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.fadeExit-enter-active .mainContent,
+.fadeExit-exit-active .mainContent {
+    transition: opacity 500ms, transform 500ms;
+}
+.spinner{
+animation: spin 1s ease-in-out infinite;
+-webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
