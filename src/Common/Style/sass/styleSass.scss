@@ -1,15 +1,49 @@
 @import 'functions';
 @import "_variables";
 
-
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
 
 .color-AthensGray {
   color: $AthensGray
 }
-.color-Charade {
+.c-Charade {
   color: $Charade
 }
+.c-silver-sand{
+   color: $Silver-Sand;
+}
+.c-Masala{
+   color: $Masala;
+}
 
+
+.boxShadow{
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.04)!important;
+}
+
+.br-list{
+  border-right: solid 5px ;
+}
+
+.b-c-Charade{
+  border-right-color: $Charade ;
+
+}
+.b-c-Silver-Sand{
+  border-right-color: $Silver-Sand ;
+
+}
+.b-c-Burning-Orange{
+  border-right-color: $Burning-Orange ;
+
+}
 
 
 .bg-AthensGray{
@@ -18,6 +52,15 @@
 .bg-Charade{
   background-color: $Charade;
 }
+.bg-home{
+  background-color: $c-default;
+}
+.bg-light-silver{
+  background-color: $light-silver;
+}
+.bg-Iron{
+  background-color: $Iron;
+}
 
 
 .border-AthensGray{
@@ -25,4 +68,8 @@
 }
 .border-Charade{
   border: 1px solid $Charade;
+}
+
+.br-50{
+  border-radius: 50%;
 }

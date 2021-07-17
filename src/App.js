@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {Redirect, Route, Switch} from 'react-router-dom';
 import {UserContext} from "./Common/componennt/Provider/UserProvider";
 import Login from "./Component/Login/Login";
+import Userinfo from "./Component/Userinfo/Userinfo";
 
 
 
@@ -33,10 +34,11 @@ const AuthRoute = ({ component: Component, authUser,props, ...rest }) => {
 export default function  App() {
     const User=useContext(UserContext);
   return (
-      <div className="App">
+      <div className="App bg-home " >
               <Switch>
 
                   <Route path="/login" exact render={props => <Login {...props} />}/>
+                  <Route path="/Userinfo" exact render={props => <Userinfo {...props} />}/>
 
                    <AuthRoute path="/" authUser={User.isLogIn} component={(props) => <Login {...props}  />}  />
               </Switch>
