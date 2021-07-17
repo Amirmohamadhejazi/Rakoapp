@@ -9,7 +9,21 @@ import TopBar from "../TopBar";
 const Userinfo = (props) => {
     // let { mode,state,ChangePage}= UseSideAnimate()
 
-    // const [count, setCount] = useState(1);
+    const [userStatistic, setUserStatistic] = useState([
+        {header:"مجموع ساعات رزرو شده",
+            subHeader:"۵۶۴ ساعت",
+            classes:"b-c-Charade"
+        },
+        {header:"پرداختی در مخل در ماه",
+            subHeader:"۲،۵۵۵،۳۰۰ تومان",
+            classes:"b-c-Charade"
+        },
+        {header:"مقدار بدهکاری",
+            subHeader:"۲،۵۵۵،۳۰۰ تومان",
+            classes:"b-c-Burning-Orange"
+        },
+
+    ]);
     useEffect(() => {
         // Update the document title using the browser API
         // return //for componentDidMount
@@ -26,21 +40,19 @@ const Userinfo = (props) => {
                     <div className="col-11 d-flex align-items-center  flex-row h-100 " >
 
                         <div className="col-4 d-flex flex-column h-75 justify-content-between Fs-22  "   >
+                            {
+                                userStatistic.map((item,index)=>
+                                    <div className={["w-100 d-flex flex-column br-list  align-items-end pr-20" ,item.classes].join(" ")} key={index}>
+                                        <span className="c-silver-sand ">{item.header}</span>
+                                        <span className="c-Charade " style={{direction: "rtl"}}>{item.subHeader}</span>
+                                    </div>
 
-                            <div className="w-100 d-flex flex-column br-list b-c-Charade align-items-end pr-20"  >
-                                <span className="c-silver-sand ">مجموع ساعات رزرو شده</span>
-                                <span className="c-Charade " style={{direction: "rtl"}}>۵۶۴ ساعت</span>
-                            </div>
+                                )
+                            }
 
-                            <div className="w-100 d-flex flex-column br-list b-c-Charade align-items-end pr-20"   >
-                                <span className="c-silver-sand ">پرداختی در مخل در ماه</span>
-                                <span className="c-Charade" style={{direction: "rtl"}}>۲،۵۵۵،۳۰۰ تومان</span>
-                            </div>
 
-                            <div className="w-100 d-flex flex-column br-list b-c-Burning-Orange align-items-end pr-20"   >
-                                <span className="c-silver-sand ">مقدار بدهکاری</span>
-                                <span className="c-Charade " style={{direction: "rtl"}}>۲،۵۵۵،۳۰۰ تومان</span>
-                            </div>
+
+
                         </div>
 
 
