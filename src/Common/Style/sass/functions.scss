@@ -1,5 +1,5 @@
 
-//**********padding , margin  and fontsize   *********
+//**********padding , margin  and fontsize and borderRadius  *********
 $PZS: 6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,48;
 
 @each $PZ in $PZS {
@@ -45,6 +45,10 @@ $PZS: 6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,48;
   }
   .Fs-#{$PZ} {
     font-size: $PZPx !important;
+
+  }
+  .br-#{$PZ} {
+    border-radius: $PZPx !important;
 
   }
 };

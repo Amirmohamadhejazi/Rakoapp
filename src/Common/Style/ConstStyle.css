@@ -159,3 +159,17 @@ animation: spin 1s ease-in-out infinite;
         visibility: hidden;
     }
 }
+
+
+/************Special Size************/
+.w-6vw{
+    width: 6vw;
+}
+.h-6vw{
+    height: 6vw;
+}
+.circle-6vw{
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+}

@@ -1,9 +1,7 @@
 @import url(fontyekan.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
 body {
     font-family: IRANYekan !important;
-    font-weight: 300;
-    direction: rtl;
-    background-color: #E2E2E2;
+
     margin: 0;
 }
 h1, h2, h3, h4, h5, h6,input, textarea,p,span,div {
@@ -61,9 +59,4 @@ h1 {
 }
 .text-black {
     font-weight: 900;
-}
-blockquote {
-    font-weight: 500;
-    padding: 10px;
-    border: 1px dashed #666666;
 }

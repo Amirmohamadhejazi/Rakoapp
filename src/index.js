@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 import './Common/Style/sass/styleSass.scss'
 import './Common/Style/ConstStyle.css'
+import './Common/Style/Yekan/css/fontStyle.css'
 
 import { BrowserRouter } from 'react-router-dom';
 import {Provider} from 'react-redux'
