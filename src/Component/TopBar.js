@@ -13,10 +13,8 @@ const IconHeader=(props)=>{
     )
 }
 
-// import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
 
 const TopBar = (props) => {
-    // let { mode,state,ChangePage}= UseSideAnimate()
 
     // const [count, setCount] = useState(1);
     useEffect(() => {
@@ -37,6 +35,7 @@ const TopBar = (props) => {
                 </IconHeader>
 
                 <div className="  d-flex justify-content-start align-items-center h-100">
+                     {/*Todo:change  responsive width*/}
                     <div className="bg-white d-flex justify-content-center boxShadow h-6vw br-16" style={{width: "145px"    }}>
                         <span className="c-silver-sand Fs-16 d-flex align-items-center  fw-bold"  >زمین سالاردره</span>
                     </div>
