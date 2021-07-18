@@ -1,14 +1,15 @@
 @import 'functions';
 @import "_variables";
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;
-}
+//hr {
+//
+//  display: block;
+//  margin-top: 0.5em;
+//  margin-bottom: 0.5em;
+//  margin-left: auto;
+//  margin-right: auto;
+//  border-style: inset;
+//  border-width: 1px;
+//}
 
 .color-AthensGray {
   color: $AthensGray
@@ -37,11 +38,12 @@ th, td {
 
 }
 .b-c-Silver-Sand{
-  border-right-color: $Silver-Sand ;
+  //border-color: $Silver-Sand ;
+ border: 1px solid $Silver-Sand;
 
 }
 .b-c-Burning-Orange{
-  border-right-color: $Burning-Orange ;
+  border-color: $Burning-Orange ;
 
 }
 

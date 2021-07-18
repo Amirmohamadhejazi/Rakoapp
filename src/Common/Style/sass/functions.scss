@@ -51,6 +51,7 @@ $PZS: 6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,48;
     border-radius: $PZPx !important;
 
   }
+
 };
 
 //*********ZIndex*********
@@ -62,6 +63,7 @@ $z:1;
   .opacity-#{$z}{
     opacity:$z/10 ;
   }
+
   $z: $z + 1;
 }
 
@@ -89,7 +91,27 @@ $w:5;
   $w: $w + 5;
 };
 
+//**********border 1px to 10px *********
+$PZS: 1,2,3,4,5,6,7,8,9,10;
 
+@each $PZ in $PZS {
+  $PZPx: $PZ + px;
+  .b-#{$PZ} {
+    border: $PZPx solid !important;
+  }
+//  .br-#{$PZ} {
+//  border-right: $PZPx solid !important;
+//
+//}
+//  .bl-#{$PZ} {
+//  border-left: $PZPx solid  !important;
+//
+//}
+//  .bb-#{$PZ} {
+//  border-left: $PZPx solid !important;
+//
+//}
+};
 
 //@function bottom-shadow($depth) {
 //  $primary-offset: nth($shadowOffsetsBottom, $depth) * 1px;

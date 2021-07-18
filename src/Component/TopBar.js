@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {BsChatDots, IoClose, IoSettingsOutline} from "react-icons/all";
+import { BsChatDots, IoClose, IoSettingsOutline} from "react-icons/all";
 
 const IconHeader=(props)=>{
     return(
         <div className={["  d-flex justify-content-end ", props.parentClass].join(" ")}>
-            <div className={[" flex-center boxShadow  circle-6vw ", props.childClass?props.childClass:"bg-white"].join(" ")} >
+            <div className={[" flex-center boxShadow  circle-60px ", props.childClass?props.childClass:"bg-white"].join(" ")} >
                 {
                     props.children
                 }

@@ -38,7 +38,7 @@ export default function  App() {
               <Switch>
 
                   <Route path="/login" exact render={props => <Login {...props} />}/>
-                  <Route path="/Userinfo" exact render={props => <Userinfo {...props} />}/>
+                  <Route path="/userinfo" exact render={props => <Userinfo {...props} />}/>
 
                    <AuthRoute path="/" authUser={User.isLogIn} component={(props) => <Login {...props}  />}  />
               </Switch>
