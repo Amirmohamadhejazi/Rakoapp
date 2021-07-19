@@ -4,6 +4,7 @@ import TopBar from "../TopBar";
 
 import { FiPhoneCall ,IoReceiptOutline} from "react-icons/all";
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
+import HighHeadline from "../HighHeadline";
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -15,30 +16,33 @@ const Userinfo = (props) => {
     const [userStatistic, setUserStatistic] = useState([
         {header:"ساعت رزرو شده در ماه",
             subHeader:"۱۲۲ ساعت",
-            classes:"b-c-Charade"
+            classes:"border-r5-Charade"
         },
         {header:"پرداختی آنلاین در ماه",
             subHeader:moneyFormat(2555023),
-            classes:"b-c-Charade"
+            classes:"border-r5-Charade"
         },
         {header:"مبلغ کل پرداخت شده",
             subHeader:moneyFormat(5123511),
-            classes:"b-c-Charade"
+            classes:"border-r5-Charade"
         },
         {header:"مجموع ساعات رزرو شده",
             subHeader:"۵۶۴ ساعت",
-            classes:"b-c-Charade"
+            classes:"border-r5-Charade"
         },
         {header:"پرداختی در مخل در ماه",
             subHeader:moneyFormat(26512585),
-            classes:"b-c-Charade"
+            classes:"border-r5-Charade"
         },
         {header:"مقدار بدهکاری",
             subHeader:moneyFormat(251255023),
-            classes:"b-c-Burning-Orange"
+            classes:"border-r5-Burning-Orange"
         },
 
     ]);
+
+
+
 
 
     // **********************sec 1-2
@@ -54,6 +58,60 @@ const Userinfo = (props) => {
         },
     ]);
 
+    // ********************** sec 2 table
+    const [WeeklyBooking_h, setWeeklyBooking_h] = useState([
+        {header:"کل هفته",
+            classes:"Fs-20"
+        },
+        {header:"جمعه",
+            classes:"Fs-20"
+        },
+        {header:"پنجشنبه",
+            classes:"Fs-20"
+        },
+        {header:"چهارشنبه",
+            classes:"Fs-20"
+        },
+        {header:"سه ‌شنبه",
+            classes:"Fs-20"
+        },
+        {header:"دو‌شنبه",
+            classes:"Fs-20"
+        },
+        {header:"یک‌شنبه",
+            classes:"Fs-20"
+        },
+        {header:"‌شنبه",
+            classes:"Fs-20"
+        },
+    ]);
+    const [WeeklyBooking_b, setWeeklyBooking_b] = useState([
+        {header:"۱۲۴ ساعت",
+            classes:"Fs-20 rtl fw-200"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        },
+        {header:"۴۳",
+            classes:"Fs-18"
+        }
+    ]);
+
     useEffect(() => {
         // Update the document title using the browser API
         // return //for componentDidMount
@@ -64,19 +122,20 @@ const Userinfo = (props) => {
             {/*menu Top*/}
             <TopBar/>
 
-            <div className="bg-white  flex-center flex-column col-11 br-36 " style={{  height:"50vw" }} >
-                <div className=" col-11 br-14  b-c-Silver-Sand " style={{  height:"39vw" }}>
+            <div className="  flex-center flex-column col-11 br-36 " style={{  height:"70vw" }} >
+
+                <div className=" col-11 br-14  border1-Silver-Sand" style={{  height:"39vw" }}>
                  {/************************ Sec 1 ************************/}
                     <div className=" d-flex justify-content-end align-items-center h-100 " >
                         {/*//Todo:wrong style width and alignContent*/}
-                        <div className=" d-flex flex-column justify-content-between Fs-22 flex-wrap-reverse  " style={{width:"280" , height:"260px" , alignContent: "around"}} >
+                        <div className=" d-flex flex-column justify-content-between Fs-22 flex-wrap-reverse " style={{width:"280" , height:"260px"}} >
                             {
                                 userStatistic.map((item,index)=>
-                                    <div className={[" w-100 d-flex flex-column br-5 br-list align-items-end pr-10" ,item.classes].join(" ")} key={index}>
+                                    <div className={[" w-100 d-flex flex-column br-5 align-items-end pr-10" ,item.classes].join(" ")} key={index}>
                                         <span className="c-silver-sand ">{item.header}</span>
                                         {/*//Todo:change  direction is attribute html tag */}
                                         {/*<span className="c-Charade " dir='rtl'>{item.subHeader}</span>*/}
-                                        <span className="c-Charade " style={{direction: "rtl"}}>{item.subHeader}</span>
+                                        <span className="c-Charade " dir='rtl'>{item.subHeader}</span>
                                     </div>
                                 )
                             }
@@ -84,13 +143,13 @@ const Userinfo = (props) => {
 
                         <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"330px"}}>
 
-                            <div className="bg-white flex-center boxShadow br-50 overflow-hidden " style={{width: "9vw" , height: "9vw"}}>
+                            <div className="bg-white  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "9vw" , height: "9vw"}}>
                                 <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
                             </div>
 
                             {
                                 UserInfo.map((item,index)=>
-                                    <div className={[" w-100 flex-center " ,item.classes].join(" ")} key={index}>
+                                    <div className={[" w-100  flex-center " ,item.classes].join(" ")} key={index}>
                                         <span className="c-Masala Fs-24 ">{item.header}</span>
                                     </div>
                                 )
@@ -98,12 +157,12 @@ const Userinfo = (props) => {
 
                             <div className="d-flex w-75 justify-content-around" style={{height:"4vw"}}>
 
-                                <div className="bg-white flex-center c-Charade b-c-Charade br-6 h-100 b-2 " style={{width: "100px",  }}>
+                                <div className="bg-white flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "100px",  }}>
                                     <span className="Fs-16 text-bold "  >
                                         تسویه <IoReceiptOutline className="c-Charade Fs-18"/>
                                     </span>
                                 </div>
-                                <div className="bg-white flex-center c-Charade b-c-Charade br-6 h-100 b-2 " style={{width: "100px"  }}>
+                                <div className="bg-white  flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "100px"  }}>
                                     <span className="Fs-16 text-bold " >
                                         تماس <FiPhoneCall className="c-Charade Fs-18"/>
                                     </span>
@@ -116,14 +175,37 @@ const Userinfo = (props) => {
                 {/************************ Sec 2 ************************/}
                 {/*//Todo:change  inline style br-15 border*/}
 
-                <div className=" col-11 d-flex flex-column flex-center mt-26 " style={{borderRadius: "15px", border: "1px solid #c6c6c6", fontFamily: "IRANYekan"}}>
-                        <div className="col-11 ">
-                            <span className="c-Charade d-flex justify-content-end  Fs-24 ">رزرو هفته</span>
+                <div className="col-11 d-flex flex-column flex-center mt-26 br-14 border1-Silver-Sand" id="sec2">
+                        <div className="col-11 mt-26" id="High-headline">
+                            <HighHeadline text={"رزرو هفته"}/>
+                            <table className="table c-Dark-Puce mt-20">
+                                <thead>
+                                <tr>
+                                    {
+                                        WeeklyBooking_h.map((item,index)=>
+                                            <td  className={[" " ,item.classes].join(" ")} key={index}>
+                                                {item.header}
+                                            </td>
+                                        )
+                                    }
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    {
+                                        WeeklyBooking_b.map((item,index)=>
+                                            <td className={["fw-bold c-Dark-Puce " ,item.classes].join(" ")} key={index}>
+                                                {item.header}
+                                            </td>
+                                        )
+                                    }
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                 </div>
 
             </div>
-
         </div>
     );
 };
