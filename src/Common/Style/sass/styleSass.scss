@@ -30,12 +30,12 @@
    color: $Dark-Puce ;
 }
 
-//{/*//Todo:change  name*/}
+
 .boxShadow04{
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.04)!important;
 }
 
-//{/*//Todo:سه تا کلاس پایینی  اسمشون یه سبکه ولی محتواشون فرق می کنه */}
+
 
 
 
@@ -131,13 +131,13 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
   .w-top-bar {
     width: 110px;
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 1400px) {
+@media screen and (min-width: 850px) and (max-width: 1400px) {
   .w-top-bar {
     width: 18vw;
   }
