@@ -16,7 +16,7 @@ const Userinfo = (props) => {
     const [userStatistic, setUserStatistic] = useState([
         {header:"ساعت رزرو شده در ماه",
             subHeader:"۱۲۲ ساعت",
-            classes:"border-r5-Charade"
+            classes:"border-r5-Charade "
         },
         {header:"پرداختی آنلاین در ماه",
             subHeader:moneyFormat(2555023),
@@ -48,67 +48,67 @@ const Userinfo = (props) => {
     // **********************sec 1-2
     const [UserInfo, setUserInfo] = useState([
         {header:" هوشنگ مرادی لنکرانی",
-            classes:"Fs-24"
+            classes:"Fs-16"
         },
         {header:"بازیکن",
-            classes:"Fs-22"
+            classes:"Fs-16"
         },
         {header:"۰۹۱۱۲۵۸۷۲۳۱",
-            classes:"Fs-22"
+            classes:"Fs-16"
         },
     ]);
 
     // ********************** sec 2 table
     const [WeeklyBooking_h, setWeeklyBooking_h] = useState([
         {header:"کل هفته",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"جمعه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"پنجشنبه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"چهارشنبه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"سه ‌شنبه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"دو‌شنبه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"یک‌شنبه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
         {header:"‌شنبه",
-            classes:"Fs-20"
+            classes:"Fs-14"
         },
     ]);
     const [WeeklyBooking_b, setWeeklyBooking_b] = useState([
         {header:"۱۲۴ ساعت",
-            classes:"Fs-20 rtl fw-200"
+            classes:"Fs-14 rtl fw-200"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         },
         {header:"۴۳",
-            classes:"Fs-18"
+            classes:"Fs-14"
         }
     ]);
 
@@ -128,43 +128,41 @@ const Userinfo = (props) => {
                  {/************************ Sec 1 ************************/}
                     <div className=" d-flex justify-content-end align-items-center h-100 " >
                         {/*//Todo:wrong style width and alignContent*/}
-                        <div className=" d-flex flex-column justify-content-between Fs-22 flex-wrap-reverse " style={{width:"280" , height:"260px"}} >
+                        <div className=" d-flex flex-column justify-content-between flex-wrap-reverse " style={{width:"280" , height:"160px"}} >
                             {
                                 userStatistic.map((item,index)=>
                                     <div className={[" w-100 d-flex flex-column br-5 align-items-end pr-10" ,item.classes].join(" ")} key={index}>
-                                        <span className="c-silver-sand ">{item.header}</span>
-                                        {/*//Todo:change  direction is attribute html tag */}
-                                        {/*<span className="c-Charade " dir='rtl'>{item.subHeader}</span>*/}
-                                        <span className="c-Charade " dir='rtl'>{item.subHeader}</span>
+                                        <span className="c-silver-sand Fs-14 ">{item.header}</span>
+                                        <span className="c-Charade Fs-16" dir='rtl'>{item.subHeader}</span>
                                     </div>
                                 )
                             }
                         </div>
 
-                        <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"330px"}}>
+                        <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"250px"}}>
 
-                            <div className="bg-white  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "9vw" , height: "9vw"}}>
+                            <div className="bg-white  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
                                 <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
                             </div>
 
                             {
                                 UserInfo.map((item,index)=>
                                     <div className={[" w-100  flex-center " ,item.classes].join(" ")} key={index}>
-                                        <span className="c-Masala Fs-24 ">{item.header}</span>
+                                        <span className="c-Masala ">{item.header}</span>
                                     </div>
                                 )
                             }
 
-                            <div className="d-flex w-75 justify-content-around" style={{height:"4vw"}}>
+                            <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
 
-                                <div className="bg-white flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "100px",  }}>
-                                    <span className="Fs-16 text-bold "  >
-                                        تسویه <IoReceiptOutline className="c-Charade Fs-18"/>
+                                <div className="bg-white flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px",  }}>
+                                    <span className="Fs-12 text-bold "  >
+                                        تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
                                     </span>
                                 </div>
-                                <div className="bg-white  flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "100px"  }}>
-                                    <span className="Fs-16 text-bold " >
-                                        تماس <FiPhoneCall className="c-Charade Fs-18"/>
+                                <div className="bg-white  flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px"  }}>
+                                    <span className="Fs-12 text-bold " >
+                                        تماس <FiPhoneCall className="c-Charade Fs-12"/>
                                     </span>
                                 </div>
                             </div>
