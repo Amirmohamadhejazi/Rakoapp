@@ -98,7 +98,7 @@
 
 
 
-#High-headline{
+.High-headline{
   h1 {
     display: flex;
     flex-direction: row;
@@ -117,7 +117,7 @@
 
 }
 #sec2{
-  height: 23vw;
+
 
   table{
     border: 2px solid $Bright-Gray !important;
@@ -130,20 +130,85 @@
 
 }
 
+@media screen and (max-width: 600px) {
+  .p-s16-m32-lg48-xl48{
+    padding: 16px;
+  }
+  .h-s40-m50-lg60-xl-60{
+    height: 40px;
+  }
+  .Fs-s25-m34-lg34-xl34{
+    font-size: 25px;
+  }
+  .circle-icon-header{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
 
-@media screen and (max-width: 850px) {
+
+  .w-top-bar {
+    width: 110px;
+  }
+}
+
+
+
+@media screen and (min-width: 600px) and (max-width: 850px){
+  .p-s16-m32-lg48-xl48{
+    padding: 32px;
+  }
+  .h-s40-m50-lg60-xl-60{
+    height: 50px;
+  }
+  .Fs-s25-m34-lg34-xl34{
+    font-size: 25px;
+  }
+  .circle-icon-header{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
   .w-top-bar {
     width: 110px;
   }
 }
 
 @media screen and (min-width: 850px) and (max-width: 1400px) {
+  .p-s16-m32-lg48-xl48{
+    padding: 48px;
+  }
+  .h-s40-m50-lg60-xl-60{
+    height: 60px;
+  }
+  .Fs-s25-m34-lg34-xl34{
+    font-size: 34px;
+  }
+  .circle-icon-header{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
   .w-top-bar {
     width: 18vw;
   }
 }
 
 @media screen and (min-width: 1400px) {
+  .p-s16-m32-lg48-xl48{
+    padding: 48px;
+  }
+  .h-s40-m50-lg60-xl-60{
+    height: 60px;
+  }
+  .Fs-s25-m34-lg34-xl34{
+    font-size: 34px;
+  }
+  .circle-icon-header{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
   .w-top-bar {
     width: 140px;
   }

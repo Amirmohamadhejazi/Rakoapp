@@ -122,24 +122,24 @@ const Userinfo = (props) => {
             {/*menu Top*/}
             <TopBar/>
 
-            <div className="  flex-center flex-column col-11 br-36 " style={{  height:"70vw" }} >
+            <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
 
-                <div className=" col-11 br-14  border1-Silver-Sand" style={{  height:"39vw" }}>
+                <div className="  p-2 br-16  border1-Silver-Sand w-100"  >
                  {/************************ Sec 1 ************************/}
-                    <div className=" d-flex justify-content-end align-items-center h-100 " >
-                        {/*//Todo:wrong style width and alignContent*/}
-                        <div className=" d-flex flex-column justify-content-between flex-wrap-reverse " style={{width:"280" , height:"160px"}} >
+                    <div className=" d-flex justify-content-end   h-100 " >
+
+                        <div className=" row m-0   justify-content-between   "   >
                             {
                                 userStatistic.map((item,index)=>
-                                    <div className={[" w-100 d-flex flex-column br-5 align-items-end pr-10" ,item.classes].join(" ")} key={index}>
-                                        <span className="c-silver-sand Fs-14 ">{item.header}</span>
-                                        <span className="c-Charade Fs-16" dir='rtl'>{item.subHeader}</span>
+                                    <div className={[" w-50 d-flex flex-column br-5 justify-content-around pr-10 mt-2" ,item.classes].join(" ")} key={index}>
+                                        <span className="c-silver-sand Fs-14 text-right ">{item.header}</span>
+                                        <span className="c-Charade Fs-16 text-right" dir='rtl'>{item.subHeader}</span>
                                     </div>
                                 )
                             }
                         </div>
 
-                        <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"250px"}}>
+                        <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"40%"}}>
 
                             <div className="bg-white  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
                                 <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
@@ -147,9 +147,9 @@ const Userinfo = (props) => {
 
                             {
                                 UserInfo.map((item,index)=>
-                                    <div className={[" w-100  flex-center " ,item.classes].join(" ")} key={index}>
-                                        <span className="c-Masala ">{item.header}</span>
-                                    </div>
+
+                                        <p className={["c-Masala text-center mb-0 " ,item.classes].join(" ")} key={index}>{item.header}</p>
+
                                 )
                             }
 
@@ -173,10 +173,10 @@ const Userinfo = (props) => {
                 {/************************ Sec 2 ************************/}
                 {/*//Todo:change  inline style br-15 border*/}
 
-                <div className="col-11 d-flex flex-column flex-center mt-26 br-14 border1-Silver-Sand" id="sec2">
-                        <div className="col-11 mt-26" id="High-headline">
+                <div className="w-100    mt-26 br-14 border1-Silver-Sand p-24" id="sec2">
+
                             <HighHeadline text={"رزرو هفته"}/>
-                            <table className="table c-Dark-Puce mt-20">
+                            <table className="table c-Dark-Puce mt-20 w-100">
                                 <thead>
                                 <tr>
                                     {
@@ -200,7 +200,7 @@ const Userinfo = (props) => {
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
+
                 </div>
 
             </div>
