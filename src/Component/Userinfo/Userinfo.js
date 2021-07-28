@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import TopBar from "../TopBar";
 
-import { FiPhoneCall ,IoReceiptOutline} from "react-icons/all";
+import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "react-icons/all";
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
 import HighHeadline from "../HighHeadline";
 
@@ -200,10 +200,26 @@ const Userinfo = (props) => {
                                 </tr>
                                 </tbody>
                             </table>
+                </div>
+
+                <div className="w-100 mt-26 br-14 border1-Silver-Sand p-24" id="sec3">
+
+                    <div className=" d-flex flex-row justify-content-between ">
+
+                        <div className=" d-flex flex-row "  >
+                            <span className="bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
+                            <span className="d-flex align-items-center c-Mountain-Mist Fs-14 pl-20" dir="rtl">فیلتر براساس تاریخ:</span>
+                        </div>
+
+                        <div className="w-25 d-flex justify-content-end">
+                            <span className=" c-Charade Fs-16 fw-bold">لیست رزرو ها</span>
+                        </div>
+
+                    </div>
 
                 </div>
 
-            </div>
+                </div>
         </div>
     );
 };
