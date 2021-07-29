@@ -32,6 +32,15 @@
 .c-Mountain-Mist{
    color: $Mountain-Mist ;
 }
+.c-Grey-Suit{
+   color: $Grey-Suit ;
+}
+.c-White-Smoke{
+   color: $White-Smoke ;
+}
+.c-Gray-sand{
+   color: $Gray-sand ;
+}
 
 
 .boxShadow04{
@@ -85,6 +94,9 @@
 .bg-Cultured{
   background-color: $Cultured;
 }
+.bg-White-Smoke{
+  background-color: $White-Smoke;
+}
 
 
 .border-AthensGray{
@@ -134,6 +146,18 @@
     }
   }
 
+}
+
+#sec3{
+
+  hr.style-six {
+    height: 0;
+    padding: 300px 0 300px 0;
+    border: solid 1px;
+  }
+  hr {
+      background-color: $Anti-Flash-White;
+  }
 }
 
 @media screen and (max-width: 600px) {

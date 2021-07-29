@@ -14,29 +14,33 @@ const Userinfo = (props) => {
 
     // **********************sec 1-1
     const [userStatistic, setUserStatistic] = useState([
-        {header:"ساعت رزرو شده در ماه",
-            subHeader:"۱۲۲ ساعت",
-            classes:"border-r5-Charade "
+
+        {header:"مجموع ساعات رزرو شده",
+            subHeader:"۵۶۴ ساعت",
+            classes:"border-r5-Charade"
+        },
+
+        {header:"پرداختی در مخل در ماه",
+            subHeader:moneyFormat(26512585),
+            classes:"border-r5-Charade"
         },
         {header:"پرداختی آنلاین در ماه",
             subHeader:moneyFormat(2555023),
             classes:"border-r5-Charade"
         },
-        {header:"مبلغ کل پرداخت شده",
-            subHeader:moneyFormat(5123511),
-            classes:"border-r5-Charade"
+        {header:"ساعت رزرو شده در ماه",
+            subHeader:"۱۲۲ ساعت",
+            classes:"border-r5-Charade "
         },
-        {header:"مجموع ساعات رزرو شده",
-            subHeader:"۵۶۴ ساعت",
-            classes:"border-r5-Charade"
-        },
-        {header:"پرداختی در مخل در ماه",
-            subHeader:moneyFormat(26512585),
-            classes:"border-r5-Charade"
-        },
+
+
         {header:"مقدار بدهکاری",
             subHeader:moneyFormat(251255023),
             classes:"border-r5-Burning-Orange"
+        },
+        {header:"مبلغ کل پرداخت شده",
+            subHeader:moneyFormat(5123511),
+            classes:"border-r5-Charade"
         },
 
     ]);
@@ -85,6 +89,7 @@ const Userinfo = (props) => {
             classes:"Fs-14"
         },
     ]);
+
     const [WeeklyBooking_b, setWeeklyBooking_b] = useState([
         {header:"۱۲۴ ساعت",
             classes:"Fs-14 rtl fw-200"
@@ -112,6 +117,71 @@ const Userinfo = (props) => {
         }
     ]);
 
+    // ********************** sec 3
+    const [listfilters, setlistfilters] = useState([
+        {header:"تمام شده",
+            classes:"bg-White-Smoke"
+        },
+        {header:"لغو شده",
+            classes:"bg-White-Smoke"
+        },
+        {header:"فعال",
+            classes:"bg-White-Smoke"
+        },
+        {header:"در محل",
+            classes:"bg-White-Smoke"
+        },
+        {header:"آنلاین",
+            classes:"bg-White-Smoke"
+        },
+        {header: "پرداخت نشده",
+            classes:"bg-White-Smoke"
+        },
+        {header: "فیلترها:",
+            classes:"rtl"
+        }
+    ]);
+    const [listfilters_b, setlistfilters_b] = useState([
+        {header:"عملیات",
+            // classes:"text-center"
+        },
+        {header:"وضعیت پرداخت",
+            // classes:"text-right"
+        },
+        {header:"وضعیت رزرو",
+            // classes:"text-right"
+        },
+        {header:"ساعت پایان",
+            // classes:"text-right"
+        },
+        {header:"ساعت شروع",
+            // classes:"text-right"
+        },
+        {header: "تاریخ",
+            // classes:"text-right"
+        }
+    ]);
+    const [listfilters_1, setlistfilters_1] = useState([
+        {header:"آنلاین",
+            // classes:"text-center"
+        },
+        {header:"فعال",
+            // classes:"text-center"
+        },
+        {header:"۱۶:۰۰",
+            // classes:"text-center"
+        },
+        {header:"۱۴:۰۰",
+            // classes:"text-center"
+        },
+        {header:"۹۹/۱۱/۵",
+            // classes:"text-right"
+        },
+
+    ]);
+
+
+
     useEffect(() => {
         // Update the document title using the browser API
         // return //for componentDidMount
@@ -125,7 +195,7 @@ const Userinfo = (props) => {
             <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
 
                 <div className="  p-2 br-16  border1-Silver-Sand w-100"  >
-                 {/************************ Sec 1 ************************/}
+                {/************************************************ Sec 1 ************************************************/}
                     <div className=" d-flex justify-content-end   h-100 " >
 
                         <div className=" row m-0   justify-content-between   "   >
@@ -170,7 +240,7 @@ const Userinfo = (props) => {
                     </div>
                 </div>
 
-                {/************************ Sec 2 ************************/}
+                {/************************************************ Sec 2 ************************************************/}
                 {/*//Todo:change  inline style br-15 border*/}
 
                 <div className="w-100    mt-26 br-14 border1-Silver-Sand p-24" id="sec2">
@@ -202,7 +272,12 @@ const Userinfo = (props) => {
                             </table>
                 </div>
 
+
+                {/************************************************ Sec 3 ************************************************/}
+
                 <div className="w-100 mt-26 br-14 border1-Silver-Sand p-24" id="sec3">
+
+                    {/************************ Sec 3 1 ************************/}
 
                     <div className=" d-flex flex-row justify-content-between ">
 
@@ -216,6 +291,56 @@ const Userinfo = (props) => {
                         </div>
 
                     </div>
+
+                    <hr className="mt-30 mb-30"/>
+
+                    {/************************ Sec 3 2 ************************/}
+
+                    <div className="w-100 d-flex justify-content-end">
+                        <div className=" d-flex  flex-row justify-content-between w-85" >
+
+                            {
+                                listfilters.map((item,index)=>
+                                    <span className={[" c-Gray-sand Fs-14  " ,item.classes].join(" ")} key={index}> {item.header}</span>
+                                )
+                            }
+
+                        </div>
+                    </div>
+
+                    <div className="d-flex align-items-start mt-40">
+                        <div className="w-95 d-flex justify-content-between" >
+                            {
+                                listfilters_b.map((item,index)=>
+                                    <span className={["Fs-12  c-Mountain-Mist",item.classes].join(" ")} key={index}> {item.header}</span>
+                                )
+                            }
+                        </div>
+                    </div>
+
+                    <hr/>
+
+                    {/************************ Sec 3 3 ************************/}
+
+                    <div className="d-flex align-items-center ">
+                        <div className="w-95 d-flex justify-content-between " >
+                            <div className="br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
+                                <span className="Fs-10">پرداخت شد</span>
+                            </div>
+                            {
+                                listfilters_1.map((item,index)=>
+                                    <span className={["Fs-16  c-Masala",item.classes].join(" ")} key={index}> {item.header}</span>
+                                )
+                            }
+                        </div>
+
+                    </div>
+
+
+                    <hr/>
+
+
+
 
                 </div>
 
