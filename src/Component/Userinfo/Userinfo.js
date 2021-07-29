@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useTable } from 'react-table';
 
 import TopBar from "../TopBar";
 
@@ -182,6 +183,95 @@ const Userinfo = (props) => {
 
 
 
+    // ************************************************ sec 3 table Start ************************************************
+    const data = React.useMemo(
+        () => [
+            {
+                col1: '۹۹/۱۱/۵',
+                col2: '۱۴:۰۰',
+                col3: '۱۶:۰۰',
+                col4: 'فعال',
+                col5:  'آنلاین' ,
+                col6:
+                    <div className="w-100 d-flex justify-content-center">
+                        <div className=" br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
+                            <span className="Fs-10">پرداخت نشد</span>
+                        </div>
+                    </div>,
+            },
+            {
+                col1: '۹۹/۱۱/۴',
+                col2: '۱۴:۰۰',
+                col3: '۱۶:۰۰',
+                col4: 'لغو شده',
+                col5: '-',
+                col6:
+                    <div className="w-100 d-flex justify-content-center">
+                        <div className=" br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
+                            <span className="Fs-10">پرداخت شد</span>
+                        </div>
+                    </div>,
+            },
+            {
+                col1: '۹۹/۱۱/۴',
+                col2: '۱۴:۰۰',
+                col3: '۱۶:۰۰',
+                col4: 'تمام شده',
+                col5: 'پرداخت نشده',
+                col6:
+                    <div className="w-100 d-flex justify-content-center">
+                        <div className=" br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
+                            <span className="Fs-10">پرداخت شد</span>
+                        </div>
+                    </div>,
+            },
+        ],
+        []
+    )
+
+    const columns = React.useMemo(
+        () => [
+            {
+
+
+                Header: 'تاریخ',
+                accessor: 'col1', // accessor is the "key" in the data
+            },
+            {
+                Header: 'ساعت شروع',
+                accessor: 'col2',
+            },
+            {
+                Header: 'ساعت پایان',
+                accessor: 'col3', // accessor is the "key" in the data
+            },
+            {
+                Header: 'وضعیت رزرو',
+                accessor: 'col4',
+            },
+            {
+                Header: 'وضعیت پرداخت',
+                accessor: 'col5', // accessor is the "key" in the data
+            },
+            {
+                Header: 'عملیات',
+                accessor: 'col6',
+            },
+        ],
+        []
+    )
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+    } = useTable({ columns, data })
+    //************************************************ sec 3 table End ************************************************
+
+
+
     useEffect(() => {
         // Update the document title using the browser API
         // return //for componentDidMount
@@ -308,43 +398,66 @@ const Userinfo = (props) => {
                         </div>
                     </div>
 
-                    <div className="d-flex align-items-start mt-40">
-                        <div className="w-95 d-flex justify-content-between" >
-                            {
-                                listfilters_b.map((item,index)=>
-                                    <span className={["Fs-12  c-Mountain-Mist",item.classes].join(" ")} key={index}> {item.header}</span>
-                                )
-                            }
-                        </div>
-                    </div>
-
                     <hr/>
 
                     {/************************ Sec 3 3 ************************/}
 
-                    <div className="d-flex align-items-center ">
-                        <div className="w-95 d-flex justify-content-between " >
-                            <div className="br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
-                                <span className="Fs-10">پرداخت شد</span>
-                            </div>
-                            {
-                                listfilters_1.map((item,index)=>
-                                    <span className={["Fs-16  c-Masala",item.classes].join(" ")} key={index}> {item.header}</span>
-                                )
-                            }
-                        </div>
-
-                    </div>
 
 
-                    <hr/>
+
+
+
+
+
+
+                    {/************************************************ Table ************************************************/}
+                    <table {...getTableProps()} className="w-100 rtl">
+
+                        <thead>
+
+                        {headerGroups.map(headerGroup => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map(column => (
+
+                                    <th{...column.getHeaderProps()} className="c-Mountain-Mist Fs-12 text-center ltr">
+                                        {column.render('Header')}
+                                    </th>
+
+                                ))}
+                            </tr>
+                        ))}
+
+                        </thead>
+
+                        <tbody {...getTableBodyProps()}>
+                        {rows.map(row => {
+                            prepareRow(row)
+                            return (
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map(cell => {
+                                        return (
+                                            <td{...cell.getCellProps()}
+                                               className="border-b1-Anti-Flash-White text-center pt-20 pb-20" style={{ height:"50px"}}>
+                                                {cell.render('Cell')}
+                                            </td>
+                                        )
+                                    })}
+                                </tr>
+                            )
+                        })}
+                        </tbody>
+
+                    </table>
+                    {/************************************************ Table ************************************************/}
+
+
+
 
 
 
 
                 </div>
-
-                </div>
+            </div>
         </div>
     );
 };
