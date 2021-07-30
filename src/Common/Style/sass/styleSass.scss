@@ -38,6 +38,12 @@
 .c-Gray-sand{
    color: $Gray-sand ;
 }
+.c-Anti-Flash-White{
+   color: $Anti-Flash-White ;
+}
+.c-Quartz{
+   color: $Quartz ;
+}
 
 
 .boxShadow04{
@@ -97,6 +103,12 @@
 }
 .bg-White-Smoke{
   background-color: $White-Smoke;
+}
+.bg-Anti-Flash-White{
+  background-color: $Anti-Flash-White ;
+}
+.bg-Quartz{
+  background-color: $Quartz ;
 }
 
 
@@ -176,6 +188,11 @@
     height: 40px;
     border-radius: 50%;
   }
+  .circle-icon-footer{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
 
 
   .w-top-bar {
@@ -200,6 +217,11 @@
     height: 50px;
     border-radius: 50%;
   }
+  .circle-icon-footer{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
   .w-top-bar {
     width: 110px;
   }
@@ -220,6 +242,13 @@
     height: 60px;
     border-radius: 50%;
   }
+
+  .circle-icon-footer{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
   .w-top-bar {
     width: 18vw;
   }
@@ -238,6 +267,11 @@
   .circle-icon-header{
     width: 60px;
     height: 60px;
+    border-radius: 50%;
+  }
+  .circle-icon-footer{
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
   }
   .w-top-bar {

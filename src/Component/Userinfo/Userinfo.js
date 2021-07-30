@@ -6,6 +6,7 @@ import TopBar from "../TopBar";
 import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "react-icons/all";
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
 import HighHeadline from "../HighHeadline";
+import Under_page from "../Under_page";
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -453,7 +454,7 @@ const Userinfo = (props) => {
 
 
 
-
+<Under_page/>
 
 
                 </div>
