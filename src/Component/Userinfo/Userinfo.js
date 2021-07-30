@@ -7,6 +7,7 @@ import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "r
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
 import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
+import Varify from "./Varify";
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -185,6 +186,7 @@ const Userinfo = (props) => {
 
 
     // ************************************************ sec 3 table Start ************************************************
+
     const data = React.useMemo(
         () => [
             {
@@ -193,12 +195,8 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'فعال',
                 col5:  'آنلاین' ,
-                col6:
-                    <div className="w-100 d-flex justify-content-center">
-                        <div className=" br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
-                            <span className="Fs-10">پرداخت نشد</span>
-                        </div>
-                    </div>,
+                col6:<Varify classParent={"border1-Charade br-4 d-flex align-items-center justify-content-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
+
             },
             {
                 col1: '۹۹/۱۱/۴',
@@ -206,25 +204,16 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'لغو شده',
                 col5: '-',
-                col6:
-                    <div className="w-100 d-flex justify-content-center">
-                        <div className=" br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
-                            <span className="Fs-10">پرداخت شد</span>
-                        </div>
-                    </div>,
+                col6:<Varify classParent={"border-AthensGray br-4 d-flex align-items-center justify-content-center " } classChild={"Fs-10 c-AthensGray"} text={"پرداخت نشد"}/>,
+
             },
             {
                 col1: '۹۹/۱۱/۴',
                 col2: '۱۴:۰۰',
                 col3: '۱۶:۰۰',
                 col4: 'تمام شده',
-                col5: 'پرداخت نشده',
-                col6:
-                    <div className="w-100 d-flex justify-content-center">
-                        <div className=" br-4 border1-Silver-Sand d-flex align-items-center justify-content-center" style={{width:"80px" , height:"30px"}}>
-                            <span className="Fs-10">پرداخت شد</span>
-                        </div>
-                    </div>,
+                col5: 'آفلاین',
+                col6:<Varify classParent={"border1-Charade br-4 d-flex align-items-center justify-content-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
             },
         ],
         []
@@ -233,8 +222,6 @@ const Userinfo = (props) => {
     const columns = React.useMemo(
         () => [
             {
-
-
                 Header: 'تاریخ',
                 accessor: 'col1', // accessor is the "key" in the data
             },
@@ -253,7 +240,8 @@ const Userinfo = (props) => {
             {
                 Header: 'وضعیت پرداخت',
                 accessor: 'col5', // accessor is the "key" in the data
-            },
+            }
+            ,
             {
                 Header: 'عملیات',
                 accessor: 'col6',
@@ -268,6 +256,7 @@ const Userinfo = (props) => {
         headerGroups,
         rows,
         prepareRow,
+
     } = useTable({ columns, data })
     //************************************************ sec 3 table End ************************************************
 
@@ -337,14 +326,14 @@ const Userinfo = (props) => {
                 <div className="w-100    mt-26 br-14 border1-Silver-Sand p-24" id="sec2">
 
                             <HighHeadline text={"رزرو هفته"}/>
-                            <table className="table c-Dark-Puce mt-20 w-100">
+                            <table  className="table c-Dark-Puce mt-20 w-100">
                                 <thead>
                                 <tr>
                                     {
                                         WeeklyBooking_h.map((item,index)=>
-                                            <td  className={[" " ,item.classes].join(" ")} key={index}>
-                                                {item.header}
-                                            </td>
+                                                <td  className={[" " ,item.classes].join(" ")} key={index}>
+                                                    {item.header}
+                                                </td>
                                         )
                                     }
                                 </tr>
@@ -437,10 +426,10 @@ const Userinfo = (props) => {
                                 <tr {...row.getRowProps()}>
                                     {row.cells.map(cell => {
                                         return (
-                                            <td{...cell.getCellProps()}
-                                               className="border-b1-Anti-Flash-White text-center pt-20 pb-20" style={{ height:"50px"}}>
-                                                {cell.render('Cell')}
-                                            </td>
+                                                <td{...cell.getCellProps()}
+                                                   className="border-b1-Anti-Flash-White text-center pt-20 pb-20" style={{ height:"50px"}}>
+                                                    {cell.render('Cell')}
+                                                </td>
                                         )
                                     })}
                                 </tr>
@@ -449,6 +438,7 @@ const Userinfo = (props) => {
                         </tbody>
 
                     </table>
+
                     {/************************************************ Table ************************************************/}
 
 

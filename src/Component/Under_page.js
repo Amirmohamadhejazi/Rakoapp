@@ -11,22 +11,16 @@ const Under_page = (props) => {
     const [listUnderpage, setlistUnderpage] = useState([
         {header:"1",
             classes_div:"bg-Anti-Flash-White",
-            classes_text:"c-Quartz"
-        },
+            classes_text:"c-Quartz"},
         {header:"2",
             classes_div:"bg-white",
-            classes_text:"c-Anti-Flash-White"
-        },
+            classes_text:"c-Anti-Flash-White"},
         {header:"3",
             classes_div:"bg-white",
-            classes_text:"c-Anti-Flash-White"
-        },
+            classes_text:"c-Anti-Flash-White"},
     ]);
-
-
     return (
         <div className="w-100 d-flex justify-content-center align-items-center pt-20 pb-20">
-
             <HiOutlineChevronDoubleLeft className="Fs-26 c-Anti-Flash-White"/>
             <HiOutlineChevronLeft className="Fs-26 c-Anti-Flash-White"/>
             {/********************************* icon left page*/}
@@ -38,7 +32,6 @@ const Under_page = (props) => {
                     </div>
                 )
             }
-
             {/********************************* icon right page*/}
             <HiOutlineChevronRight className="Fs-26 c-silver-sand"/>
             <HiOutlineChevronDoubleRight className="Fs-26 c-silver-sand"/>

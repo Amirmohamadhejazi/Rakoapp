@@ -11,7 +11,7 @@
 //  border-width: 1px;
 //}
 
-.color-AthensGray {
+.c-AthensGray {
   color: $AthensGray
 }
 .c-Charade {
@@ -60,6 +60,10 @@
   border: 1px solid $Bright-Gray;
 }
 
+.border1-Charade{
+  border: 1px solid $Charade;
+}
+
 .border2-Charade{
   border: 2px solid $Charade;
 }
@@ -75,6 +79,7 @@
 .border-r5-Charade{
   border-right: 5px solid $Charade;
 }
+
 
 .border-b1-Anti-Flash-White{
   border-bottom: 1px solid $Anti-Flash-White;;
