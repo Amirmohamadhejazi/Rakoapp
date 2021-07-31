@@ -367,7 +367,7 @@ const Userinfo = (props) => {
                         </div>
 
                         <div className="w-25 d-flex justify-content-end">
-                            <span className=" c-Charade Fs-16 fw-bold">لیست رزرو ها</span>
+                            <span className=" c-Charade Fs-16  fw-bold">لیست رزرو ها</span>
                         </div>
 
                     </div>

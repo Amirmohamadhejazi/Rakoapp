@@ -73,6 +73,13 @@
 }
 
 // *** *** border right
+.border-r3-Burning-Orange{
+  border-right: solid 3px $Burning-Orange;
+}
+.border-r3-Charade{
+  border-right: 3px solid $Charade;
+}
+
 .border-r5-Burning-Orange{
   border-right: solid 5px $Burning-Orange;
 }
@@ -148,7 +155,7 @@
   }
 
   h1:before {
-    margin-right: 2vw
+    margin-right: 1vw
   }
 
 }
@@ -168,13 +175,28 @@
 
 #sec3{
 
-  hr.style-six {
-    height: 0;
-    padding: 300px 0 300px 0;
-    border: solid 1px;
-  }
-  hr {
-      background-color: $Anti-Flash-White;
+}
+
+hr.style-six {
+
+  height: 0;
+  padding: 300px 0 300px 0;
+  border: solid 1px;
+}
+hr {
+  background-color: $Anti-Flash-White;
+}
+
+#statistic{
+
+  table{
+    border: 1px solid $Bright-Gray !important;
+    border-radius: 20px;
+    th, td {
+      border: 1px solid $Bright-Gray;
+      border-collapse: collapse!important;
+      text-align: center;
+    }
   }
 }
 
