@@ -351,8 +351,6 @@ const Statistic = (props) => {
                             <span className=" c-Charade Fs-16 fw-bold">مدیریت مالی هفتگی</span>
 
                         </div>
-
-
                     </div>
 
                     <hr className="mt-20 mb-20" style={{width: "100%"}}/>

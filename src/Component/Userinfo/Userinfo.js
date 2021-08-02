@@ -8,6 +8,7 @@ import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction"
 import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
 import Varify from "./Varify";
+import BorderTemplate from ".././BorderTemplate";
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -144,44 +145,44 @@ const Userinfo = (props) => {
             classes:"rtl"
         }
     ]);
-    const [listfilters_b, setlistfilters_b] = useState([
-        {header:"عملیات",
-            // classes:"text-center"
-        },
-        {header:"وضعیت پرداخت",
-            // classes:"text-right"
-        },
-        {header:"وضعیت رزرو",
-            // classes:"text-right"
-        },
-        {header:"ساعت پایان",
-            // classes:"text-right"
-        },
-        {header:"ساعت شروع",
-            // classes:"text-right"
-        },
-        {header: "تاریخ",
-            // classes:"text-right"
-        }
-    ]);
-    const [listfilters_1, setlistfilters_1] = useState([
-        {header:"آنلاین",
-            // classes:"text-center"
-        },
-        {header:"فعال",
-            // classes:"text-center"
-        },
-        {header:"۱۶:۰۰",
-            // classes:"text-center"
-        },
-        {header:"۱۴:۰۰",
-            // classes:"text-center"
-        },
-        {header:"۹۹/۱۱/۵",
-            // classes:"text-right"
-        },
-
-    ]);
+    // const [listfilters_b, setlistfilters_b] = useState([
+    //     {header:"عملیات",
+    //         // classes:"text-center"
+    //     },
+    //     {header:"وضعیت پرداخت",
+    //         // classes:"text-right"
+    //     },
+    //     {header:"وضعیت رزرو",
+    //         // classes:"text-right"
+    //     },
+    //     {header:"ساعت پایان",
+    //         // classes:"text-right"
+    //     },
+    //     {header:"ساعت شروع",
+    //         // classes:"text-right"
+    //     },
+    //     {header: "تاریخ",
+    //         // classes:"text-right"
+    //     }
+    // ]);
+    // const [listfilters_1, setlistfilters_1] = useState([
+    //     {header:"آنلاین",
+    //         // classes:"text-center"
+    //     },
+    //     {header:"فعال",
+    //         // classes:"text-center"
+    //     },
+    //     {header:"۱۶:۰۰",
+    //         // classes:"text-center"َ
+    //     },
+    //     {header:"۱۴:۰۰",
+    //         // classes:"text-center"
+    //     },
+    //     {header:"۹۹/۱۱/۵",
+    //         // classes:"text-right"
+    //     },
+    //
+    // ]);
 
 
 
@@ -195,7 +196,7 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'فعال',
                 col5:  'آنلاین' ,
-                col6:<Varify classParent={"border1-Charade br-4 d-flex align-items-center justify-content-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
+                col6:<Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
 
             },
             {
@@ -204,7 +205,7 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'لغو شده',
                 col5: '-',
-                col6:<Varify classParent={"border-AthensGray br-4 d-flex align-items-center justify-content-center " } classChild={"Fs-10 c-AthensGray"} text={"پرداخت نشد"}/>,
+                col6:<Varify classParent={"border-AthensGray br-4 flex-center " } classChild={"Fs-10 c-AthensGray"} text={"پرداخت نشد"}/>,
 
             },
             {
@@ -213,7 +214,7 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'تمام شده',
                 col5: 'آفلاین',
-                col6:<Varify classParent={"border1-Charade br-4 d-flex align-items-center justify-content-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
+                col6:<Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
             },
         ],
         []
@@ -262,13 +263,14 @@ const Userinfo = (props) => {
 
 
 
+
     useEffect(() => {
         // Update the document title using the browser API
         // return //for componentDidMount
     }, []);
 
     return (
-        <div className='w-100  d-flex flex-center flex-column'>
+        <div className='w-100  flex-center flex-column'>
             {/*menu Top*/}
             <TopBar/>
 
@@ -278,7 +280,7 @@ const Userinfo = (props) => {
                 {/************************************************ Sec 1 ************************************************/}
                     <div className=" d-flex justify-content-end   h-100 " >
 
-                        <div className=" row m-0   justify-content-between   "   >
+                        <div className=" row m-0  justify-content-between">
                             {
                                 userStatistic.map((item,index)=>
                                     <div className={[" w-50 d-flex flex-column br-5 justify-content-around pr-10 mt-2" ,item.classes].join(" ")} key={index}>
@@ -305,12 +307,12 @@ const Userinfo = (props) => {
 
                             <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
 
-                                <div className="bg-white flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px",  }}>
+                                <div className=" flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px",  }}>
                                     <span className="Fs-12 text-bold "  >
                                         تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
                                     </span>
                                 </div>
-                                <div className="bg-white  flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px"  }}>
+                                <div className="  flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px"  }}>
                                     <span className="Fs-12 text-bold " >
                                         تماس <FiPhoneCall className="c-Charade Fs-12"/>
                                     </span>
@@ -321,41 +323,46 @@ const Userinfo = (props) => {
                 </div>
 
                 {/************************************************ Sec 2 ************************************************/}
-                {/*//Todo:change  inline style br-15 border*/}
 
-                <div className="w-100    mt-26 br-14 border1-Silver-Sand p-24" id="sec2">
 
-                            <HighHeadline text={"رزرو هفته"}/>
-                            <table  className="table c-Dark-Puce mt-20 w-100">
-                                <thead>
-                                <tr>
-                                    {
-                                        WeeklyBooking_h.map((item,index)=>
-                                                <td  className={[" " ,item.classes].join(" ")} key={index}>
-                                                    {item.header}
-                                                </td>
-                                        )
-                                    }
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    {
-                                        WeeklyBooking_b.map((item,index)=>
-                                            <td className={["fw-bold c-Dark-Puce " ,item.classes].join(" ")} key={index}>
-                                                {item.header}
-                                            </td>
-                                        )
-                                    }
-                                </tr>
-                                </tbody>
-                            </table>
-                </div>
+                <BorderTemplate id={"sec2"} >
+
+                    <HighHeadline text={"رزرو هفته"}/>
+
+
+
+                    <table  className="table c-Dark-Puce mt-20 w-100">
+                        <thead>
+                        <tr>
+                            {
+                                WeeklyBooking_h.map((item,index)=>
+                                    <td  className={[" " ,item.classes].join(" ")} key={index}>
+                                        {item.header}
+                                    </td>
+                                )
+                            }
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {
+                                WeeklyBooking_b.map((item,index)=>
+                                    <td className={["fw-bold c-Dark-Puce " ,item.classes].join(" ")} key={index}>
+                                        {item.header}
+                                    </td>
+                                )
+                            }
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </BorderTemplate>
 
 
                 {/************************************************ Sec 3 ************************************************/}
 
-                <div className="w-100 mt-26 br-14 border1-Silver-Sand p-24" id="sec3">
+
+                <BorderTemplate  id={"sec3"} >
 
                     {/************************ Sec 3 1 ************************/}
 
@@ -377,7 +384,7 @@ const Userinfo = (props) => {
                     {/************************ Sec 3 2 ************************/}
 
                     <div className="w-100 d-flex justify-content-end">
-                        <div className=" d-flex  flex-row justify-content-between w-85" >
+                        <div className="d-flex flex-row justify-content-between w-85" >
 
                             {
                                 listfilters.map((item,index)=>
@@ -423,11 +430,9 @@ const Userinfo = (props) => {
                         {rows.map(row => {
                             prepareRow(row)
                             return (
-                                <tr {...row.getRowProps()}>
-                                    {row.cells.map(cell => {
+                                <tr {...row.getRowProps()}> {row.cells.map(cell => {
                                         return (
-                                                <td{...cell.getCellProps()}
-                                                   className="border-b1-Anti-Flash-White text-center pt-20 pb-20" style={{ height:"50px"}}>
+                                                <td{...cell.getCellProps()} className="border-b1-Anti-Flash-White text-center pt-20 pb-20" style={{ height:"50px"}}>
                                                     {cell.render('Cell')}
                                                 </td>
                                         )
@@ -440,14 +445,16 @@ const Userinfo = (props) => {
                     </table>
 
                     {/************************************************ Table ************************************************/}
+                    <Under_page/>
+
+
+
+            </BorderTemplate>
 
 
 
 
-<Under_page/>
 
-
-                </div>
             </div>
         </div>
     );
