@@ -9,6 +9,7 @@ import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
 import Varify from "./Varify";
 import BorderTemplate from ".././BorderTemplate";
+import Table1 from "./table/Table1";
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -66,62 +67,66 @@ const Userinfo = (props) => {
         },
     ]);
 
-    // ********************** sec 2 table
-    const [WeeklyBooking_h, setWeeklyBooking_h] = useState([
-        {header:"کل هفته",
-            classes:"Fs-14"
-        },
-        {header:"جمعه",
-            classes:"Fs-14"
-        },
-        {header:"پنجشنبه",
-            classes:"Fs-14"
-        },
-        {header:"چهارشنبه",
-            classes:"Fs-14"
-        },
-        {header:"سه ‌شنبه",
-            classes:"Fs-14"
-        },
-        {header:"دو‌شنبه",
-            classes:"Fs-14"
-        },
-        {header:"یک‌شنبه",
-            classes:"Fs-14"
-        },
-        {header:"‌شنبه",
-            classes:"Fs-14"
-        },
-    ]);
+// ********************** sec 2 table
 
-    const [WeeklyBooking_b, setWeeklyBooking_b] = useState([
-        {header:"۱۲۴ ساعت",
-            classes:"Fs-14 rtl fw-200"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        },
-        {header:"۴۳",
-            classes:"Fs-14"
-        }
-    ]);
+    const Data_table1 = React.useMemo(
+        () => [
+            {
+                col1:  '۱۲ ساعت',
+                col2:  '۹ ساعت',
+                col3:  '۴ ساعت',
+                col4:  '۶ ساعت',
+                col5:  '۸ ساعت' ,
+                col6:  '۴ ساعت',
+                col7:  '۹ ساعت',
+                col8:  '۵۲ ساعت',
+            }
+        ],
+        []
+    )
+
+    const columns_table1 = React.useMemo(
+        () => [
+
+            {
+                Header: 'شنبه',
+                accessor: 'col1', // accessor is the "key" in the data
+            },
+            {
+                Header: 'یک شنبه',
+                accessor: 'col2',
+            },
+            {
+                Header: 'دوشنبه',
+                accessor: 'col3', // accessor is the "key" in the data
+            },
+            {
+                Header: 'سه‌شنبه',
+                accessor: 'col4', // accessor is the "key" in the data
+            },
+            {
+                Header: 'چهارشنبه',
+                accessor: 'col5',
+            },
+            {
+                Header: 'پنجشنبه',
+                accessor: 'col6', // accessor is the "key" in the data
+            }
+            ,
+            {
+                Header: 'جمعه',
+                accessor: 'col7',
+            },
+            {
+                Header: 'کل هفته',
+                accessor: 'col8',
+            },
+        ],
+        []
+    )
 
     // ********************** sec 3
+
     const [listfilters, setlistfilters] = useState([
         {header:"تمام شده",
             classes:"bg-White-Smoke"
@@ -145,50 +150,10 @@ const Userinfo = (props) => {
             classes:"rtl"
         }
     ]);
-    // const [listfilters_b, setlistfilters_b] = useState([
-    //     {header:"عملیات",
-    //         // classes:"text-center"
-    //     },
-    //     {header:"وضعیت پرداخت",
-    //         // classes:"text-right"
-    //     },
-    //     {header:"وضعیت رزرو",
-    //         // classes:"text-right"
-    //     },
-    //     {header:"ساعت پایان",
-    //         // classes:"text-right"
-    //     },
-    //     {header:"ساعت شروع",
-    //         // classes:"text-right"
-    //     },
-    //     {header: "تاریخ",
-    //         // classes:"text-right"
-    //     }
-    // ]);
-    // const [listfilters_1, setlistfilters_1] = useState([
-    //     {header:"آنلاین",
-    //         // classes:"text-center"
-    //     },
-    //     {header:"فعال",
-    //         // classes:"text-center"
-    //     },
-    //     {header:"۱۶:۰۰",
-    //         // classes:"text-center"َ
-    //     },
-    //     {header:"۱۴:۰۰",
-    //         // classes:"text-center"
-    //     },
-    //     {header:"۹۹/۱۱/۵",
-    //         // classes:"text-right"
-    //     },
-    //
-    // ]);
-
-
 
     // ************************************************ sec 3 table Start ************************************************
 
-    const data = React.useMemo(
+   const data = React.useMemo(
         () => [
             {
                 col1: '۹۹/۱۱/۵',
@@ -263,20 +228,15 @@ const Userinfo = (props) => {
 
 
 
-
-    useEffect(() => {
-        // Update the document title using the browser API
-        // return //for componentDidMount
-    }, []);
-
     return (
+
         <div className='w-100  flex-center flex-column'>
             {/*menu Top*/}
             <TopBar/>
 
             <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
 
-                <div className="  p-2 br-16  border1-Silver-Sand w-100"  >
+                <BorderTemplate class={"mt-26 br-14 p-24"}>
                 {/************************************************ Sec 1 ************************************************/}
                     <div className=" d-flex justify-content-end   h-100 " >
 
@@ -306,7 +266,6 @@ const Userinfo = (props) => {
                             }
 
                             <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
-
                                 <div className=" flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px",  }}>
                                     <span className="Fs-12 text-bold "  >
                                         تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
@@ -320,41 +279,16 @@ const Userinfo = (props) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </BorderTemplate>
 
                 {/************************************************ Sec 2 ************************************************/}
 
 
-                <BorderTemplate id={"sec2"} >
+                <BorderTemplate class={"mt-26 br-14 p-24"} id={"sec2"} >
 
                     <HighHeadline text={"رزرو هفته"}/>
 
-
-
-                    <table  className="table c-Dark-Puce mt-20 w-100">
-                        <thead>
-                        <tr>
-                            {
-                                WeeklyBooking_h.map((item,index)=>
-                                    <td  className={[" " ,item.classes].join(" ")} key={index}>
-                                        {item.header}
-                                    </td>
-                                )
-                            }
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            {
-                                WeeklyBooking_b.map((item,index)=>
-                                    <td className={["fw-bold c-Dark-Puce " ,item.classes].join(" ")} key={index}>
-                                        {item.header}
-                                    </td>
-                                )
-                            }
-                        </tr>
-                        </tbody>
-                    </table>
+                    <Table1 data={Data_table1} data_C={columns_table1}  />
 
                 </BorderTemplate>
 
@@ -362,7 +296,7 @@ const Userinfo = (props) => {
                 {/************************************************ Sec 3 ************************************************/}
 
 
-                <BorderTemplate  id={"sec3"} >
+                <BorderTemplate class={"mt-26 br-14 p-24"}  id={"sec3"} >
 
                     {/************************ Sec 3 1 ************************/}
 

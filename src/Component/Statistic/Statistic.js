@@ -5,6 +5,8 @@ import { useTable } from 'react-table';
 import HighHeadline from "../HighHeadline";
 import {AiOutlineLeft, AiOutlineRight} from "react-icons/all";
 import Varify from "../Userinfo/Varify";
+import BorderTemplate from ".././BorderTemplate";
+
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -211,6 +213,83 @@ const Statistic = (props) => {
 
 
     // ************************************************ sec 3 table Start ************************************************
+    const jadval1 = [
+
+     data = React.useMemo(
+        () => [
+            {
+                col1: '۶۴ ساعت',
+                col2: '۶۴ ساعت',
+                col3: '۶۴ ساعت',
+                col4: '۶۴ ساعت',
+                col5: '۶۴ ساعت',
+                col6: '۶۴ ساعت',
+                col7: '۶۴ ساعت',
+
+            },
+            {
+                col1: '۱،۲۳۴،۰۰۰',
+                col2: '۵۶۸،۰۰۰',
+                col3: '۲،۵۵۵،۳۰۰',
+                col4: '۳۰۰،۰۰۰',
+                col5: '۱۰،۳۲۴،۵۵۵',
+                col6: '۴۵۶،۰۰۰',
+                col7: '۴،۵۰۰،۰۰۰',
+
+            },
+
+        ],
+        []
+    ),
+
+     columns = React.useMemo(
+        () => [
+            {
+                Header: 'شنبه',
+                accessor: 'col1', // accessor is the "key" in the data
+            },
+            {
+                Header: 'یکشنبه',
+                accessor: 'col2',
+            },
+            {
+                Header: 'دوشنبه',
+                accessor: 'col3', // accessor is the "key" in the data
+            },
+            {
+                Header: 'سه شنبه',
+                accessor: 'col4',
+            },
+            {
+                Header: 'چهارشنبه',
+                accessor: 'col5', // accessor is the "key" in the data
+            }
+            ,
+            {
+                Header: 'پنجشنبه',
+                accessor: 'col6',
+            },
+            {
+                Header: 'جمعه',
+                accessor: 'col7',
+            },
+        ],
+        []
+    ),
+
+     {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow,
+
+
+    } = useTable({ columns, data })
+
+    ];
+
+
 
     const data = React.useMemo(
         () => [
@@ -295,15 +374,14 @@ const Statistic = (props) => {
             <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 ">
 
 
-
-
                 <div className=" overflow-hidden p-0">
                     <div className="row gy-3 gx-3 p-0">
                                 {
                                     userStatic.map((item,index)=>
                                         <div className="col-6 " style={{height: "200px"}}>
+                                            <BorderTemplate class={"p-2 br-8 h-100 "}>
 
-                                            <div className=" p-2 br-8  border1-Silver-Sand w-100 h-100">
+                                            {/*<div className=" p-2 br-8  border1-Silver-Sand w-100 h-100">*/}
                                                 <HighHeadline text={item.header}/>
 
                                                 <div className="row gy-3 gx-1 pr-10 pt-10">
@@ -331,16 +409,16 @@ const Statistic = (props) => {
                                                     </div>
                                                 </div>
 
-
-
-                                            </div>
+                                            {/*</div>*/}
+                                            </BorderTemplate>
                                         </div>
                                     )
                                 }
                     </div>
                 </div>
 
-                <div className="w-100  mt-26 br-14 border1-Silver-Sand p-24">
+                {/*<div className="w-100  mt-26 br-14 border1-Silver-Sand p-24">*/}
+                    <BorderTemplate class={"mt-26 br-14 p-24"}>
 
                     <div className="w-100 d-flex flex-row justify-content-between">
 
@@ -359,19 +437,17 @@ const Statistic = (props) => {
                     <table {...getTableProps()} className="w-100 rtl  " >
 
                         <thead>
-
                         {headerGroups.map(headerGroup => (
                             <tr  {...headerGroup.getHeaderGroupProps()}>
                                 {headerGroup.headers.map(column => (
 
-                                    <th{...column.getHeaderProps()} style={{ height:"40px"}} className="c-Masala Fs-12 text-center ltr">
+                                    <th{...column.getHeaderProps()} style={{ height:"40px"}} className="c-Masala Fs-14 text-center ltr">
                                         {column.render('Header')}
                                     </th>
 
                                 ))}
                             </tr>
                         ))}
-
                         </thead>
 
                         <tbody {...getTableBodyProps()}>
@@ -382,7 +458,7 @@ const Statistic = (props) => {
                                     {row.cells.map(cell => {
                                         return (
                                             <td{...cell.getCellProps()}
-                                               className="c-Masala fw-bold text-center" style={{ height:"40px"}}>
+                                               className="c-Masala Fs-14 fw-bold text-center" style={{ height:"40px"}}>
                                                 {cell.render('Cell')}
                                             </td>
                                         )
@@ -393,11 +469,10 @@ const Statistic = (props) => {
                         </tbody>
                     </table>
 
+                    </BorderTemplate>
+                {/*</div>*/}
 
-                </div>
-
-                <div className="w-100  mt-26 br-14 border1-Silver-Sand p-24">
-
+                <BorderTemplate class={"mt-26 br-14 p-24"}>
                     <div className="w-100 d-flex justify-content-between">
 
                         <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width: "20px"}}/>شنبه ۱۴ بهمن<AiOutlineRight className="Fs-16 " style={{width: "20px"}}/></span>
@@ -411,8 +486,7 @@ const Statistic = (props) => {
                     <div className="w-100 flex-center" style={{height:"300px"}}>
                         <h1>Nemodar</h1>
                     </div>
-
-                </div>
+                </BorderTemplate>
             </div>
 
 
