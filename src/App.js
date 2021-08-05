@@ -35,7 +35,7 @@ const AuthRoute = ({ component: Component, authUser,props, ...rest }) => {
 export default function  App() {
     const User=useContext(UserContext);
   return (
-      <div className="App bg-home " >
+      <div className="App" >
               <Switch>
 
                   <Route path="/login" exact render={props => <Login {...props} />}/>

@@ -1,25 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { useTable } from 'react-table';
 
-
-import { } from "react-icons/all";
-import {moneyFormat} from "../../../Common/componennt/HelperFunction/HelperFuction";
-import BorderTemplate from "../../BorderTemplate";
-
 const Table1 = (props) => {
 
-    // const data = props.data;
-    // const columns= props.data_C
-
-
-
     const [data, setdata] = useState(props.data);
-    const [columns, setcolumns] = useState(props.data_C);
-
+    const [columns, setcolumns] = useState(props.columns);
 
     useEffect(() => {
-        setcolumns(props.data_C)
-    }, [props.data_C]);
+        setdata(props.data)
+    }, [props.data]);
+
+    useEffect(() => {
+        setcolumns(props.columns)
+    }, [props.columns]);
 
     const {
         getTableProps,
@@ -29,8 +22,6 @@ const Table1 = (props) => {
         prepareRow,
 
     } = useTable({ columns, data })
-
-
 
         return (
             <table {...getTableProps()} className="w-100 rtl mt-26">

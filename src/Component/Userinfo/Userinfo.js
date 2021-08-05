@@ -9,7 +9,9 @@ import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
 import Varify from "./Varify";
 import BorderTemplate from ".././BorderTemplate";
+
 import Table1 from "./table/Table1";
+import Table2 from "./table/Table2";
 
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
@@ -49,10 +51,6 @@ const Userinfo = (props) => {
         },
 
     ]);
-
-
-
-
 
     // **********************sec 1-2
     const [UserInfo, setUserInfo] = useState([
@@ -153,7 +151,8 @@ const Userinfo = (props) => {
 
     // ************************************************ sec 3 table Start ************************************************
 
-   const data = React.useMemo(
+
+    const Data_table2 = React.useMemo(
         () => [
             {
                 col1: '۹۹/۱۱/۵',
@@ -185,7 +184,7 @@ const Userinfo = (props) => {
         []
     )
 
-    const columns = React.useMemo(
+    const columns_table2 = React.useMemo(
         () => [
             {
                 Header: 'تاریخ',
@@ -216,14 +215,6 @@ const Userinfo = (props) => {
         []
     )
 
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-
-    } = useTable({ columns, data })
     //************************************************ sec 3 table End ************************************************
 
 
@@ -235,9 +226,9 @@ const Userinfo = (props) => {
             <TopBar/>
 
             <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
-
-                <BorderTemplate class={"mt-26 br-14 p-24"}>
                 {/************************************************ Sec 1 ************************************************/}
+                <BorderTemplate class={"mt-26 br-14 p-24"}>
+
                     <div className=" d-flex justify-content-end   h-100 " >
 
                         <div className=" row m-0  justify-content-between">
@@ -253,32 +244,31 @@ const Userinfo = (props) => {
 
                         <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"40%"}}>
 
-                            <div className="bg-white  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
+                            <div className="  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
                                 <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
                             </div>
 
                             {
                                 UserInfo.map((item,index)=>
-
                                         <p className={["c-Masala text-center mb-0 " ,item.classes].join(" ")} key={index}>{item.header}</p>
-
                                 )
                             }
 
                             <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
-                                <div className=" flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px",  }}>
-                                    <span className="Fs-12 text-bold "  >
+                                <div className=" flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
+                                    <span className="Fs-12 text-bold">
                                         تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
                                     </span>
                                 </div>
-                                <div className="  flex-center c-Charade border2-Charade br-6 h-100   " style={{width: "72px"  }}>
-                                    <span className="Fs-12 text-bold " >
+                                <div className="  flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
+                                    <span className="Fs-12 text-bold">
                                         تماس <FiPhoneCall className="c-Charade Fs-12"/>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </BorderTemplate>
 
                 {/************************************************ Sec 2 ************************************************/}
@@ -288,7 +278,7 @@ const Userinfo = (props) => {
 
                     <HighHeadline text={"رزرو هفته"}/>
 
-                    <Table1 data={Data_table1} data_C={columns_table1}  />
+                    <Table1 data={Data_table1} columns={columns_table1}  />
 
                 </BorderTemplate>
 
@@ -331,57 +321,9 @@ const Userinfo = (props) => {
 
                     <hr/>
 
-                    {/************************ Sec 3 3 ************************/}
+                    <Table2 data={Data_table2} columns={columns_table2}  />
 
-
-
-
-
-
-
-
-
-                    {/************************************************ Table ************************************************/}
-                    <table {...getTableProps()} className="w-100 rtl">
-
-                        <thead>
-
-                        {headerGroups.map(headerGroup => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map(column => (
-
-                                    <th{...column.getHeaderProps()} className="c-Mountain-Mist Fs-12 text-center ltr">
-                                        {column.render('Header')}
-                                    </th>
-
-                                ))}
-                            </tr>
-                        ))}
-
-                        </thead>
-
-                        <tbody {...getTableBodyProps()}>
-                        {rows.map(row => {
-                            prepareRow(row)
-                            return (
-                                <tr {...row.getRowProps()}> {row.cells.map(cell => {
-                                        return (
-                                                <td{...cell.getCellProps()} className="border-b1-Anti-Flash-White text-center pt-20 pb-20" style={{ height:"50px"}}>
-                                                    {cell.render('Cell')}
-                                                </td>
-                                        )
-                                    })}
-                                </tr>
-                            )
-                        })}
-                        </tbody>
-
-                    </table>
-
-                    {/************************************************ Table ************************************************/}
                     <Under_page/>
-
-
 
             </BorderTemplate>
 
