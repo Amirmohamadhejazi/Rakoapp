@@ -1,18 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useTable} from 'react-table';
+
+import DataContext from "./../context/DataContext";
 
 const Table2 = (props) => {
 
-    const [data, setdata] = useState(props.data);
-    const [columns, setcolumns] = useState(props.columns);
+    const dataContext = useContext(DataContext)
 
-    useEffect(() => {
-        setdata(props.data)
-    }, [props.data]);
-
-    useEffect(() => {
-        setcolumns(props.columns)
-    }, [props.columns]);
+    const [data, setdata] = useState(dataContext.Data_table2);
+    const [columns, setcolumns] = useState(dataContext.columns_table2);
 
     const {
         getTableProps,
@@ -22,7 +18,9 @@ const Table2 = (props) => {
         prepareRow,
 
     } = useTable({columns, data})
+
     return (
+
         <table {...getTableProps()} className="w-100 rtl">
 
             <thead>

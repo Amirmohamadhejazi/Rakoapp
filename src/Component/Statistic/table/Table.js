@@ -1,19 +1,22 @@
-import React, {useState, useEffect} from 'react';
-import { useTable } from 'react-table';
+import React, {useState, useEffect, useContext} from 'react';
+import {useTable} from 'react-table';
+
+import DataContext from "./../context/DataContext";
 
 const Table = (props) => {
 
-    const [data, setdata] = useState(props.data);
-    const [columns, setcolumns] = useState(props.columns);
+    const dataContext = useContext(DataContext)
 
-
-    useEffect(() => {
-        setdata(props.data)
-    }, [props.data]);
+    const [data, setdata] = useState(dataContext.Data_table);
+    const [columns, setcolumns] = useState(dataContext.columns_table);
 
     useEffect(() => {
-        setcolumns(props.columns)
-    }, [props.columns]);
+        setdata(data)
+    }, [data]);
+
+    useEffect(() => {
+        setcolumns(columns)
+    }, [columns]);
 
     const {
         getTableProps,
@@ -24,9 +27,7 @@ const Table = (props) => {
 
     } = useTable({ columns, data })
 
-
-
-        return (
+    return (
 
             <table {...getTableProps()} className="w-100 rtl  " >
 
@@ -44,8 +45,7 @@ const Table = (props) => {
                 ))}
                 </thead>
 
-                <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
+                <tbody {...getTableBodyProps()}>{rows.map(row => {
                     prepareRow(row)
                     return (
                         <tr {...row.getRowProps()}>
@@ -62,9 +62,9 @@ const Table = (props) => {
                 })}
                 </tbody>
             </table>
-
-        )
+    )
 
 }
 
 export default Table;
+

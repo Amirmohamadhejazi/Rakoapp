@@ -13,8 +13,9 @@ import BorderTemplate from ".././BorderTemplate";
 import Table1 from "./table/Table1";
 import Table2 from "./table/Table2";
 
+//import contexs
+import DataContext from "./context/DataContext";
 
-// import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
 
 const Userinfo = (props) => {
     // let { mode,state,ChangePage}= UseSideAnimate()
@@ -218,121 +219,131 @@ const Userinfo = (props) => {
     //************************************************ sec 3 table End ************************************************
 
 
-
+console.log(Data_table1)
     return (
+        <DataContext.Provider value={{
+            Data_table1,
+            columns_table1,
 
-        <div className='w-100  flex-center flex-column'>
-            {/*menu Top*/}
-            <TopBar/>
 
-            <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
-                {/************************************************ Sec 1 ************************************************/}
-                <BorderTemplate class={"mt-26 br-14 p-24"}>
+            Data_table2,
+            columns_table2
+        }}>
 
-                    <div className=" d-flex justify-content-end   h-100 " >
+            <div className='w-100 flex-center flex-column'>
+                {/*menu Top*/}
+                <TopBar/>
 
-                        <div className=" row m-0  justify-content-between">
-                            {
-                                userStatistic.map((item,index)=>
-                                    <div className={[" w-50 d-flex flex-column br-5 justify-content-around pr-10 mt-2" ,item.classes].join(" ")} key={index}>
-                                        <span className="c-silver-sand Fs-14 text-right ">{item.header}</span>
-                                        <span className="c-Charade Fs-16 text-right" dir='rtl'>{item.subHeader}</span>
-                                    </div>
-                                )
-                            }
-                        </div>
+                <div className="flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
+                    {/************************************************ Sec 1 ************************************************/}
+                    <BorderTemplate class={"mt-26 br-14 p-24"}>
 
-                        <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"40%"}}>
+                        <div className=" d-flex justify-content-end   h-100 " >
 
-                            <div className="  flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
-                                <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
+                            <div className=" row m-0  justify-content-between">
+                                {
+                                    userStatistic.map((item,index)=>
+                                        <div className={[" w-50 d-flex flex-column br-5 justify-content-around pr-10 mt-2" ,item.classes].join(" ")} key={index}>
+                                            <span className="c-silver-sand Fs-14 text-right ">{item.header}</span>
+                                            <span className="c-Charade Fs-16 text-right" dir='rtl'>{item.subHeader}</span>
+                                        </div>
+                                    )
+                                }
                             </div>
 
-                            {
-                                UserInfo.map((item,index)=>
+                            <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"40%"}}>
+
+                                <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
+                                    <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
+                                </div>
+
+                                {
+                                    UserInfo.map((item,index)=>
                                         <p className={["c-Masala text-center mb-0 " ,item.classes].join(" ")} key={index}>{item.header}</p>
-                                )
-                            }
+                                    )
+                                }
 
-                            <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
-                                <div className=" flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
-                                    <span className="Fs-12 text-bold">
-                                        تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
-                                    </span>
-                                </div>
-                                <div className="  flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
-                                    <span className="Fs-12 text-bold">
-                                        تماس <FiPhoneCall className="c-Charade Fs-12"/>
-                                    </span>
+                                <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
+                                    <div className=" flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
+                                            <span className="Fs-12 text-bold">
+                                                تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
+                                            </span>
+                                    </div>
+                                    <div className="  flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
+                                            <span className="Fs-12 text-bold">
+                                                تماس <FiPhoneCall className="c-Charade Fs-12"/>
+                                            </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </BorderTemplate>
+                    </BorderTemplate>
 
-                {/************************************************ Sec 2 ************************************************/}
-
-
-                <BorderTemplate class={"mt-26 br-14 p-24"} id={"sec2"} >
-
-                    <HighHeadline text={"رزرو هفته"}/>
-
-                    <Table1 data={Data_table1} columns={columns_table1}  />
-
-                </BorderTemplate>
+                    {/************************************************ Sec 2 ************************************************/}
 
 
-                {/************************************************ Sec 3 ************************************************/}
+                    <BorderTemplate class={"mt-26 br-14 p-24"} id={"sec2"} >
+
+                        <HighHeadline text={"رزرو هفته"}/>
+
+                        <Table1 />
+
+                    </BorderTemplate>
 
 
-                <BorderTemplate class={"mt-26 br-14 p-24"}  id={"sec3"} >
+                    {/************************************************ Sec 3 ************************************************/}
 
-                    {/************************ Sec 3 1 ************************/}
 
-                    <div className=" d-flex flex-row justify-content-between ">
+                    <BorderTemplate class={"mt-26 br-14 p-24"}  id={"sec3"} >
 
-                        <div className=" d-flex flex-row "  >
-                            <span className="bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
-                            <span className="d-flex align-items-center c-Mountain-Mist Fs-14 pl-20" dir="rtl">فیلتر براساس تاریخ:</span>
-                        </div>
+                        {/************************ Sec 3 1 ************************/}
 
-                        <div className="w-25 d-flex justify-content-end">
-                            <span className=" c-Charade Fs-16  fw-bold">لیست رزرو ها</span>
-                        </div>
+                        <div className=" d-flex flex-row justify-content-between ">
 
-                    </div>
+                            <div className=" d-flex flex-row "  >
+                                <span className="bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
+                                <span className="d-flex align-items-center c-Mountain-Mist Fs-14 pl-20" dir="rtl">فیلتر براساس تاریخ:</span>
+                            </div>
 
-                    <hr className="mt-30 mb-30"/>
-
-                    {/************************ Sec 3 2 ************************/}
-
-                    <div className="w-100 d-flex justify-content-end">
-                        <div className="d-flex flex-row justify-content-between w-85" >
-
-                            {
-                                listfilters.map((item,index)=>
-                                    <span className={[" c-Gray-sand Fs-14  " ,item.classes].join(" ")} key={index}> {item.header}</span>
-                                )
-                            }
+                            <div className="w-25 d-flex justify-content-end">
+                                <span className=" c-Charade Fs-16  fw-bold">لیست رزرو ها</span>
+                            </div>
 
                         </div>
-                    </div>
 
-                    <hr/>
+                        <hr className="mt-30 mb-30"/>
 
-                    <Table2 data={Data_table2} columns={columns_table2}  />
+                        {/************************ Sec 3 2 ************************/}
 
-                    <Under_page/>
+                        <div className="w-100 d-flex justify-content-end">
+                            <div className="d-flex flex-row justify-content-between w-85" >
 
-            </BorderTemplate>
+                                {
+                                    listfilters.map((item,index)=>
+                                        <span className={[" c-Gray-sand Fs-14  " ,item.classes].join(" ")} key={index}> {item.header}</span>
+                                    )
+                                }
+
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <Table2 />
+
+                        <Under_page/>
+
+                    </BorderTemplate>
 
 
 
 
 
+                </div>
             </div>
-        </div>
+        </DataContext.Provider>
+
     );
 };
 

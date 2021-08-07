@@ -1,19 +1,24 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useTable} from 'react-table';
 import BorderTemplate from "../BorderTemplate";
 import HighHeadline from "../HighHeadline";
 
+import DataContext from "./context/DataContext";
+
+
 const InventoryInformation = (props) => {
 
-    const [data, setdata] = useState(props.data);
+    const dataContext = useContext(DataContext)
 
+    const [data, setdata] = useState(dataContext.userStatic);
 
     useEffect(() => {
-        setdata(props.data)
-    }, [props.data]);
+        setdata(data)
+    }, [data]);
 
 
     return (
+
 
 
         <div className="row gy-3 gx-3 p-0">

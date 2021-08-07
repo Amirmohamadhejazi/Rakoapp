@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { useTable } from 'react-table';
 
 
@@ -8,6 +8,8 @@ import Varify from "../Userinfo/Varify";
 import BorderTemplate from ".././BorderTemplate";
 import Table from "./table/Table";
 import InventoryInformation from "./InventoryInformation";
+
+import DataContext from "./context/DataContext";
 
 
 
@@ -282,56 +284,65 @@ const Statistic = (props) => {
     }, []);
 
     return (
-        <div className='w-100 flex-column d-flex flex-center ' id="statistic">
+        <DataContext.Provider value={{
+            userStatic,
 
-            <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 ">
+            Data_table,
+            columns_table
+        }}>
+                <div className='w-100 flex-column d-flex flex-center ' id="statistic">
+
+                <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 ">
 
 
-                <div className=" overflow-hidden p-0">
+                    <div className=" overflow-hidden p-0">
 
-                        <InventoryInformation data={userStatic}/>
+                        <InventoryInformation/>
 
-                </div>
+                    </div>
 
                     <BorderTemplate class={"mt-26 br-14 p-24"}>
 
-                    <div className="w-100 d-flex flex-row justify-content-between">
+                        <div className="w-100 d-flex flex-row justify-content-between">
 
-                        <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
+                            <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
 
-                        <div className=" d-flex flex-row justify-content-end">
-                            <span className=" c-Charade Fs-14 fw-light">(بر حسب تومان)</span>
-                            <span className=" c-Charade Fs-16 fw-bold">مدیریت مالی هفتگی</span>
+                            <div className=" d-flex flex-row justify-content-end">
+                                <span className=" c-Charade Fs-14 fw-light">(بر حسب تومان)</span>
+                                <span className=" c-Charade Fs-16 fw-bold">مدیریت مالی هفتگی</span>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <hr className="mt-20 mb-20" style={{width: "100%"}}/>
+                        <hr className="mt-20 mb-20" style={{width: "100%"}}/>
 
-                        <Table data={Data_table} columns={columns_table}  />
+                        <Table/>
 
                     </BorderTemplate>
 
 
-                <BorderTemplate class={"mt-26 br-14 p-24"}>
+                    <BorderTemplate class={"mt-26 br-14 p-24"}>
 
-                    <div className="w-100 d-flex justify-content-between">
+                        <div className="w-100 d-flex justify-content-between">
 
-                        <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width: "20px"}}/>شنبه ۱۴ بهمن<AiOutlineRight className="Fs-16 " style={{width: "20px"}}/></span>
-                        <span className=" c-Charade Fs-16 fw-bold">لیست رزرو ها</span>
+                            <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width: "20px"}}/>شنبه ۱۴ بهمن<AiOutlineRight className="Fs-16 " style={{width: "20px"}}/></span>
+                            <span className=" c-Charade Fs-16 fw-bold">لیست رزرو ها</span>
 
-                    </div>
+                        </div>
 
-                    <hr className="mt-20 mb-20 " style={{width: "100%"}}/>
+                        <hr className="mt-20 mb-20 " style={{width: "100%"}}/>
 
 
-                    <div className="w-100 flex-center" style={{height:"300px"}}>
-                        <h1>Nemodar</h1>
-                    </div>
+                        <div className="w-100 flex-center" style={{height:"300px"}}>
+                            <h1>Nemodar</h1>
+                        </div>
 
-                </BorderTemplate>
+                    </BorderTemplate>
+                </div>
             </div>
-        </div>
+
+        </DataContext.Provider>
+
     );
 };
 
