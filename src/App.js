@@ -4,6 +4,7 @@ import {UserContext} from "./Common/componennt/Provider/UserProvider";
 import Login from "./Component/Login/Login";
 import Userinfo from "./Component/Userinfo/Userinfo";
 import Statistic from "./Component/Statistic/Statistic";
+import SearchUser from "./Component/SearchUser/SearchUser";
 
 
 
@@ -41,6 +42,7 @@ export default function  App() {
                   <Route path="/login" exact render={props => <Login {...props} />}/>
                   <Route path="/userinfo" exact render={props => <Userinfo {...props} />}/>
                   <Route path="/statistic" exact render={props => <Statistic {...props} />}/>
+                  <Route path="/searchUser" exact render={props => <SearchUser {...props} />}/>
 
                    <AuthRoute path="/" authUser={User.isLogIn} component={(props) => <Login {...props}  />}  />
               </Switch>

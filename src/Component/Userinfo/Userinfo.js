@@ -342,8 +342,8 @@ console.log(Data_table1)
 
                 </div>
             </div>
-        </DataContext.Provider>
 
+        </DataContext.Provider>
     );
 };
 

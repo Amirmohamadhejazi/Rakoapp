@@ -75,6 +75,9 @@ body{
 .border1-Silver-Sand{
  border: 1px solid $Silver-Sand;
 }
+.border1-Gray-sand{
+ border: 1px solid $Gray-sand;
+}
 
 // *** *** border right
 .border-r3-Burning-Orange{
@@ -178,6 +181,55 @@ body{
 }
 
 #sec3{
+
+}
+
+
+#SearchUser{
+
+  .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after, .dropend .dropdown-toggle-split::after {
+    margin-right: 20px;
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: 0;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+  .btn-group:focus{
+    border: 0;
+    box-shadow: none;
+
+  }
+
+  .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+  .btn-primary {
+     color: $Gray-sand;
+     background-color: transparent;
+     border:0;
+   }
+
+  .btn-primary:hover {
+     color: $Gray-sand;
+     background-color: transparent;
+     border:0;
+   }
+
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: 0;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    font-size: 25px;
+  }
 
 }
 
