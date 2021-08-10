@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext , useEffect} from 'react';
 import DataContext from "../Userinfo/context/DataContext";
 import TopBar from "../TopBar";
 import BorderTemplate from "../BorderTemplate";
@@ -18,13 +18,30 @@ import SplitButton from 'react-bootstrap/SplitButton'
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
+// import axios
+import SearchApi from "../../Common/api/SearchApi";
 
+// import componnet
 import Table from "./table/Table"
 import Varify from "../Userinfo/Varify";
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
 
 const SearchUser = (props) => {
+
+useEffect(()=>{
+    SearchApi.get(`/club_owner/reserved_mng/top_users?club_id=5`, {
+        headers: {
+            authorization: 'Token 9915e8b5f140baa3b79c213bbda1060a57d43797',
+            'Content-Type': 'application/json'
+        },
+
+
+    })
+        .then(response=> console.log(response.data.data.top_users))
+    },[])
+
+        // .catch(err=>console.log(err))
 
     const ProfImg = <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "50px" , height: "50px"}}>
                         <img src='/Assets/Img/SearchUser/tennis profile.jpg' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
