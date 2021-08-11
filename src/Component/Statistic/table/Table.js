@@ -7,16 +7,9 @@ const Table = (props) => {
 
     const dataContext = useContext(DataContext)
 
-    const [data, setdata] = useState(dataContext.Data_table);
-    const [columns, setcolumns] = useState(dataContext.columns_table);
+    const data = dataContext.Data_table;
+    const columns= dataContext.columns_table;
 
-    useEffect(() => {
-        setdata(data)
-    }, [data]);
-
-    useEffect(() => {
-        setcolumns(columns)
-    }, [columns]);
 
     const {
         getTableProps,

@@ -10,16 +10,9 @@ const InventoryInformation = (props) => {
 
     const dataContext = useContext(DataContext)
 
-    const [data, setdata] = useState(dataContext.userStatic);
-
-    useEffect(() => {
-        setdata(data)
-    }, [data]);
-
+    const data = dataContext.userStatic;
 
     return (
-
-
 
         <div className="row gy-3 gx-3 p-0">
             {

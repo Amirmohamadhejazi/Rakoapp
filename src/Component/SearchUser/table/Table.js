@@ -3,20 +3,13 @@ import {useTable} from 'react-table';
 
 import DataContext from "./../context/DataContext";
 
+
 const Table = (props) => {
 
     const dataContext = useContext(DataContext)
 
-    const [data, setdata] = useState(dataContext.Data_table1);
-    const [columns, setcolumns] = useState(dataContext.columns_table1);
-
-    useEffect(() => {
-        setdata(data)
-    }, [data]);
-
-    useEffect(() => {
-        setcolumns(columns)
-    }, [columns]);
+    const data = dataContext.Data_table1;
+    const columns= dataContext.columns_table1;
 
     const {
         getTableProps,

@@ -24,24 +24,51 @@ import SearchApi from "../../Common/api/SearchApi";
 // import componnet
 import Table from "./table/Table"
 import Varify from "../Userinfo/Varify";
+import data from "bootstrap/js/src/dom/data";
+// const [dispatch] = React.useReducer(countReducer)
+
+
+
 
 // import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
 
 const SearchUser = (props) => {
 
+
+    // const inventory = [
+    //     {name: 'apples', quantity: 2},
+    //     {name: 'bananas', quantity: 0},
+    //     {name: 'cherries', quantity: 5}
+    // ];
+    //
+    //
+    // for (let item of inventory) console.log(item)
+    // // for (let item of inventory.values()) console.log(item)
+    //
+    //
+    // console.log(inventory)
+
+
 useEffect(()=>{
+
     SearchApi.get(`/club_owner/reserved_mng/top_users?club_id=5`, {
         headers: {
             authorization: 'Token 9915e8b5f140baa3b79c213bbda1060a57d43797',
             'Content-Type': 'application/json'
         },
-
-
     })
         .then(response=> console.log(response.data.data.top_users))
-    },[])
 
-        // .catch(err=>console.log(err))
+        // .then(response => {
+        //     dispatch({ action: "SET_CONTEXT", payload: response.data });
+        // })
+
+
+
+
+
+},[])
+
 
     const ProfImg = <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "50px" , height: "50px"}}>
                         <img src='/Assets/Img/SearchUser/tennis profile.jpg' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
@@ -107,8 +134,6 @@ useEffect(()=>{
         <Data_Context.Provider value={{
             Data_table1,
             columns_table1,
-
-
         }}>
 
             <div className='w-100 flex-center flex-column'>

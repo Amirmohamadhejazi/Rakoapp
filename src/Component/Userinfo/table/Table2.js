@@ -7,8 +7,8 @@ const Table2 = (props) => {
 
     const dataContext = useContext(DataContext)
 
-    const [data, setdata] = useState(dataContext.Data_table2);
-    const [columns, setcolumns] = useState(dataContext.columns_table2);
+    const data=dataContext.Data_table2
+    const columns=dataContext.columns_table2
 
     const {
         getTableProps,
