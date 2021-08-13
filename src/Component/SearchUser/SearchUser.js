@@ -130,11 +130,13 @@ useEffect(()=>{
         []
     )
 
+    let value={
+        Data_table1,
+        columns_table1,
+    };
+
     return (
-        <Data_Context.Provider value={{
-            Data_table1,
-            columns_table1,
-        }}>
+        <Data_Context.Provider value={value}>
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}

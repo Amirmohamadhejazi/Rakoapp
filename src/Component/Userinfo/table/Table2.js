@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useEffect, useContext} from 'react';
 import {useTable} from 'react-table';
 
 import DataContext from "./../context/DataContext";

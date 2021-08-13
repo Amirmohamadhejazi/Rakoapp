@@ -16,9 +16,7 @@ import Table2 from "./table/Table2";
 //import contexs
 import DataContext from "./context/DataContext";
 
-
 const Userinfo = (props) => {
-    // let { mode,state,ChangePage}= UseSideAnimate()
 
     // **********************sec 1-1
     const [userStatistic, setUserStatistic] = useState([
@@ -219,16 +217,16 @@ const Userinfo = (props) => {
     //************************************************ sec 3 table End ************************************************
 
 
-console.log(Data_table1)
+    let value={
+        Data_table1,
+        columns_table1,
+
+        Data_table2,
+        columns_table2
+    };
+
     return (
-        <DataContext.Provider value={{
-            Data_table1,
-            columns_table1,
-
-
-            Data_table2,
-            columns_table2
-        }}>
+        <DataContext.Provider value={value}>
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}
@@ -238,9 +236,9 @@ console.log(Data_table1)
                     {/************************************************ Sec 1 ************************************************/}
                     <BorderTemplate class={"mt-26 br-14 p-24"}>
 
-                        <div className=" d-flex justify-content-end   h-100 " >
+                        <div className="d-flex h-100 " >
 
-                            <div className=" row m-0  justify-content-between">
+                            <div className="row m-0  justify-content-between">
                                 {
                                     userStatistic.map((item,index)=>
                                         <div className={[" w-50 d-flex flex-column br-5 justify-content-around pr-10 mt-2" ,item.classes].join(" ")} key={index}>
@@ -259,7 +257,7 @@ console.log(Data_table1)
 
                                 {
                                     UserInfo.map((item,index)=>
-                                        <p className={["c-Masala text-center mb-0 " ,item.classes].join(" ")} key={index}>{item.header}</p>
+                                        <p className={["c-Masala mb-0 " ,item.classes].join(" ")} key={index}>{item.header}</p>
                                     )
                                 }
 
@@ -287,7 +285,7 @@ console.log(Data_table1)
 
                         <HighHeadline text={"رزرو هفته"}/>
 
-                        <Table1 />
+                        <Table1/>
 
                     </BorderTemplate>
 
@@ -335,10 +333,6 @@ console.log(Data_table1)
                         <Under_page/>
 
                     </BorderTemplate>
-
-
-
-
 
                 </div>
             </div>

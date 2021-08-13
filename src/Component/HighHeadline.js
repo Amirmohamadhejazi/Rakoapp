@@ -1,9 +1,5 @@
 import React from 'react';
 
-
-
-// import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
-
 const HighHeadline = (props) => {
   return (
       <div className='w-100 High-headline'>
@@ -11,9 +7,6 @@ const HighHeadline = (props) => {
       </div>
 
   )
-
-
 }
-
 
 export default HighHeadline;

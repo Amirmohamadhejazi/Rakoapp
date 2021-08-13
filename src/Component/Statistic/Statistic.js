@@ -283,13 +283,15 @@ const Statistic = (props) => {
         // return //for componentDidMount
     }, []);
 
-    return (
-        <DataContext.Provider value={{
-            userStatic,
+    let value={
+        userStatic,
 
             Data_table,
             columns_table
-        }}>
+    };
+
+    return (
+        <DataContext.Provider value={value}>
                 <div className='w-100 flex-column d-flex flex-center ' id="statistic">
 
                 <div className="  flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 ">
@@ -310,7 +312,6 @@ const Statistic = (props) => {
                             <div className=" d-flex flex-row justify-content-end">
                                 <span className=" c-Charade Fs-14 fw-light">(بر حسب تومان)</span>
                                 <span className=" c-Charade Fs-16 fw-bold">مدیریت مالی هفتگی</span>
-
                             </div>
                         </div>
 

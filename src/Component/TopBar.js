@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { BsChatDots, IoClose, IoSettingsOutline} from "react-icons/all";
 
 const IconHeader=(props)=>{
