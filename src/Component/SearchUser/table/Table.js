@@ -55,7 +55,9 @@ const Table = (props) => {
             })}
             </tbody>
 
+
         </table>
+
     )
 
 }

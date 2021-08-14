@@ -1,4 +1,4 @@
-import React, {useContext , useEffect} from 'react';
+import React, {useState , useContext , useEffect} from 'react';
 import DataContext from "../Userinfo/context/DataContext";
 import TopBar from "../TopBar";
 import BorderTemplate from "../BorderTemplate";
@@ -27,112 +27,113 @@ import Varify from "../Userinfo/Varify";
 import data from "bootstrap/js/src/dom/data";
 // const [dispatch] = React.useReducer(countReducer)
 
-
-
-
-// import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
-
 const SearchUser = (props) => {
 
-
-    // const inventory = [
-    //     {name: 'apples', quantity: 2},
-    //     {name: 'bananas', quantity: 0},
-    //     {name: 'cherries', quantity: 5}
-    // ];
-    //
-    //
-    // for (let item of inventory) console.log(item)
-    // // for (let item of inventory.values()) console.log(item)
-    //
-    //
-    // console.log(inventory)
+    let [loading, setloading] = useState(true)
+    let [ApiData, setApiData] = useState(false)
 
 
-useEffect(()=>{
+    async function asyncCall(){
+        console.log("calling")
+        await SearchApi.get(`/club_owner/reserved_mng/top_users?club_id=5`, {
+            headers: {
+                authorization: 'Token 9915e8b5f140baa3b79c213bbda1060a57d43797',
+                'Content-Type': 'application/json'
+            },
+        })
+            .then (response=>{
+                setApiData(response.data.data.top_users);
+                setloading(false)
+            })
+    }
 
-    SearchApi.get(`/club_owner/reserved_mng/top_users?club_id=5`, {
-        headers: {
-            authorization: 'Token 9915e8b5f140baa3b79c213bbda1060a57d43797',
-            'Content-Type': 'application/json'
-        },
-    })
-        .then(response=> console.log(response.data.data.top_users))
-
-        // .then(response => {
-        //     dispatch({ action: "SET_CONTEXT", payload: response.data });
-        // })
+    asyncCall()
 
 
+// useEffect(()=>{
+//
+//     // if (ApiData===false){
+//     //     setloading( true);
+//     // }else {
+//     //     setloading(false);
+//     // }
+//
+//
+// },[])
 
-
-
-},[])
+    // console.log(ApiData)
 
 
     const ProfImg = <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "50px" , height: "50px"}}>
                         <img src='/Assets/Img/SearchUser/tennis profile.jpg' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
                     </div>;
 
-    const btn = <Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={'تسویه بدهی'}/>;
+    const btn = <Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>;
 
-    const columns_table1 = React.useMemo(
+    const columns_table = React.useMemo(
         () => [
             {
                 Header: 'تصویر',
-                accessor: 'col1', // accessor is the "key" in the data
+                accessor: 'image', // accessor is the "key" in the data
             },
             {
                 Header: 'نام و نام خانوادگی',
-                accessor: 'col2',
+                accessor: 'name',
+            },
+            {
+                Header: 'ساعت رزرو در هفته',
+                accessor: 'sum_seance_in_week', // accessor is the "key" in the data
             },
             {
                 Header: 'ساعت رزرو در ماه',
-                accessor: 'col3', // accessor is the "key" in the data
+                accessor: 'sum_seance_in_month', // accessor is the "key" in the data
             },
             {
                 Header: 'مبلغ کل بدهی',
-                accessor: 'col4',
+                accessor: 'sum_seance',
             },
-            {
-                Header: 'عملیات',
-                accessor: 'col5',
-            },
+
+
         ],
         []
     )
 
-    const Data_table1 = React.useMemo(
-        () => [
-            {
-                col1: ProfImg,
-                col2: 'هوشنگ مرادی لنکرانی',
-                col3: '۵۰',
-                col4: '۲،۵۵۵،۳۰۰ تومان',
-                col5: btn,
-            },
-            {
-                col1: ProfImg,
-                col2: 'هوشنگ مرادی لنکرانی',
-                col3: '۵۰',
-                col4: '۲،۵۵۵،۳۰۰ تومان',
-                col5: btn,
-
-            },
-            {
-                col1: ProfImg,
-                col2: 'هوشنگ مرادی لنکرانی',
-                col3: '۵۰',
-                col4: '۲،۵۵۵،۳۰۰ تومان',
-                col5: btn,
-            },
-        ],
+    const Data_table = React.useMemo(
+        () => ApiData,
         []
     )
+
+    // const Data_table1 = React.useMemo(
+    //     () => [
+    //         {
+    //             image: ProfImg,
+    //             name: 'هوشنگ مرادی لنکرانی',
+    //             sum_seance_in_week: '۵۰',
+    //             sum_seance_in_month: '۲،۵۵۵،۳۰۰ تومان',
+    //             sum_seance: btn,
+    //         },
+    //         {
+    //             image: ProfImg,
+    //             name: 'هوشنگ مرادی لنکرانی',
+    //             sum_seance_in_week: '۵۰',
+    //             sum_seance_in_month: '۲،۵۵۵،۳۰۰ تومان',
+    //             sum_seance: btn,
+    //
+    //         },
+    //         {
+    //             image: ProfImg,
+    //             name: 'هوشنگ مرادی لنکرانی',
+    //             sum_seance_in_week: '۵۰',
+    //             sum_seance_in_month: '۲،۵۵۵،۳۰۰ تومان',
+    //             sum_seance: btn,
+    //         },
+    //     ],
+    //     []
+    // )
 
     let value={
-        Data_table1,
-        columns_table1,
+        Data_table,
+        columns_table,
     };
 
     return (
@@ -176,8 +177,13 @@ useEffect(()=>{
 
                         <HighHeadline text={"مربیان با بیشترین بدهی"} />
 
-                        <Table/>
-
+                        {
+                            loading
+                                // اگر درست بود این
+                                ? <div>loading...</div>
+                                // اگر غلط بود این
+                                :  <Table/>
+                        }
                     </BorderTemplate>
 
 
