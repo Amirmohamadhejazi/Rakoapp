@@ -19,7 +19,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 // import axios
-import SearchApi from "../../Common/api/SearchApi";
+import api, {baseURL} from "../../Common/api/SearchApi";
 
 // import componnet
 import Table from "./table/Table"
@@ -31,50 +31,37 @@ const SearchUser = (props) => {
 
     let [loading, setloading] = useState(true)
     let [ApiData, setApiData] = useState(false)
+    useEffect(()=>{
+
+        async function asyncCall(){
+
+            await api.get(`/club_owner/reserved_mng/top_users?club_id=5`).then (response=>{
+                    console.log(response.data.data.top_users)
+                    setApiData(response.data.data.top_users);
+                    setloading(false)
+                })
+        }
+
+        asyncCall()
+    },[])
 
 
-    async function asyncCall(){
-        console.log("calling")
-        await SearchApi.get(`/club_owner/reserved_mng/top_users?club_id=5`, {
-            headers: {
-                authorization: 'Token 9915e8b5f140baa3b79c213bbda1060a57d43797',
-                'Content-Type': 'application/json'
-            },
-        })
-            .then (response=>{
-                setApiData(response.data.data.top_users);
-                setloading(false)
-            })
-    }
-
-    asyncCall()
 
 
-// useEffect(()=>{
-//
-//     // if (ApiData===false){
-//     //     setloading( true);
-//     // }else {
-//     //     setloading(false);
-//     // }
-//
-//
-// },[])
 
-    // console.log(ApiData)
-
-
-    const ProfImg = <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "50px" , height: "50px"}}>
-                        <img src='/Assets/Img/SearchUser/tennis profile.jpg' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
-                    </div>;
-
-    const btn = <Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>;
-
-    const columns_table = React.useMemo(
-        () => [
+    const columns_table =  [
             {
                 Header: 'تصویر',
-                accessor: 'image', // accessor is the "key" in the data
+                accessor: 'image', // accessor is the "key" in the data,
+                Cell: function Cell(cell) {
+                    return (
+                        <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "50px" , height: "50px"}}>
+                                         <img src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
+                                     </div>
+                            // <img  src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} alt='img'  width={200} height={200} className='br-50'/>
+
+                    )}
+
             },
             {
                 Header: 'نام و نام خانوادگی',
@@ -92,52 +79,30 @@ const SearchUser = (props) => {
                 Header: 'مبلغ کل بدهی',
                 accessor: 'sum_seance',
             },
+        {
+            Header: 'اکشن',
+             Cell: function Cell(cell) {
+                return (
+                    <Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
+
+                )}
+
+        },
 
 
-        ],
-        []
-    )
+        ]
 
-    const Data_table = React.useMemo(
-        () => ApiData,
-        []
-    )
 
-    // const Data_table1 = React.useMemo(
-    //     () => [
-    //         {
-    //             image: ProfImg,
-    //             name: 'هوشنگ مرادی لنکرانی',
-    //             sum_seance_in_week: '۵۰',
-    //             sum_seance_in_month: '۲،۵۵۵،۳۰۰ تومان',
-    //             sum_seance: btn,
-    //         },
-    //         {
-    //             image: ProfImg,
-    //             name: 'هوشنگ مرادی لنکرانی',
-    //             sum_seance_in_week: '۵۰',
-    //             sum_seance_in_month: '۲،۵۵۵،۳۰۰ تومان',
-    //             sum_seance: btn,
-    //
-    //         },
-    //         {
-    //             image: ProfImg,
-    //             name: 'هوشنگ مرادی لنکرانی',
-    //             sum_seance_in_week: '۵۰',
-    //             sum_seance_in_month: '۲،۵۵۵،۳۰۰ تومان',
-    //             sum_seance: btn,
-    //         },
-    //     ],
-    //     []
-    // )
 
-    let value={
-        Data_table,
-        columns_table,
-    };
+
+
 
     return (
-        <Data_Context.Provider value={value}>
+        <Data_Context.Provider value={{
+            Data_table:ApiData,
+            columns_table,
+
+        }}>
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}
@@ -182,7 +147,8 @@ const SearchUser = (props) => {
                                 // اگر درست بود این
                                 ? <div>loading...</div>
                                 // اگر غلط بود این
-                                :  <Table/>
+                                :
+                                <Table/>
                         }
                     </BorderTemplate>
 

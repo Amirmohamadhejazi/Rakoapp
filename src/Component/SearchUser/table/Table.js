@@ -8,8 +8,8 @@ const Table = (props) => {
 
     const dataContext = useContext(DataContext)
 
-    const data = dataContext.Data_table1;
-    const columns= dataContext.columns_table1;
+    const data = dataContext.Data_table;
+    const columns= dataContext.columns_table;
 
     const {
         getTableProps,
@@ -20,7 +20,11 @@ const Table = (props) => {
 
     } = useTable({columns, data})
 
+    console.log(columns)
+    console.log(data)
+
     return (
+
 
         <table {...getTableProps()} className="w-100 mt-26 rtl">
 
