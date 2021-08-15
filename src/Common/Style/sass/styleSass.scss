@@ -1,9 +1,9 @@
 @import 'functions';
 @import "_variables";
 
-body{
-  background-color: $c-default;
-}
+//body{
+//  background-color: $c-default;
+//}
 
 .c-AthensGray {
   color: $AthensGray
@@ -242,6 +242,14 @@ hr {
   }
 }
 
+#CommonTable{
+
+  .SearchUserImgSize{
+
+  }
+}
+
+
 @media screen and (max-width: 600px) {
   .p-s16-m32-lg48-xl48{
     padding: 16px;
@@ -266,6 +274,12 @@ hr {
 
   .w-top-bar {
     width: 110px;
+  }
+
+  //******************************img size
+  .SearchUserImgSize{
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -294,6 +308,12 @@ hr {
   .w-top-bar {
     width: 110px;
   }
+
+  //******************************img size
+  .SearchUserImgSize{
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media screen and (min-width: 850px) and (max-width: 1400px) {
@@ -321,6 +341,12 @@ hr {
   .w-top-bar {
     width: 18vw;
   }
+
+  //******************************img size
+  .SearchUserImgSize{
+    width: 70px;
+    height: 70px;
+  }
 }
 
 @media screen and (min-width: 1400px) {
@@ -345,6 +371,12 @@ hr {
   }
   .w-top-bar {
     width: 140px;
+  }
+
+  //******************************img size
+  .SearchUserImgSize{
+    width: 75px;
+    height: 75px;
   }
 }
 

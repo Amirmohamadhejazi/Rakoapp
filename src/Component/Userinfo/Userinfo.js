@@ -7,7 +7,7 @@ import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "r
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
 import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
-import Varify from "./Varify";
+import Usertablebtn from "./Usertablebtn";
 import BorderTemplate from ".././BorderTemplate";
 
 import Table1 from "./table/Table1";
@@ -159,7 +159,7 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'فعال',
                 col5:  'آنلاین' ,
-                col6:<Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
+                col6:<Usertablebtn classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
 
             },
             {
@@ -168,7 +168,7 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'لغو شده',
                 col5: '-',
-                col6:<Varify classParent={"border-AthensGray br-4 flex-center " } classChild={"Fs-10 c-AthensGray"} text={"پرداخت نشد"}/>,
+                col6:<Usertablebtn classParent={"border-AthensGray br-4 flex-center " } classChild={"Fs-10 c-AthensGray"} text={"پرداخت نشد"}/>,
 
             },
             {
@@ -177,7 +177,7 @@ const Userinfo = (props) => {
                 col3: '۱۶:۰۰',
                 col4: 'تمام شده',
                 col5: 'آفلاین',
-                col6:<Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
+                col6:<Usertablebtn classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
             },
         ],
         []

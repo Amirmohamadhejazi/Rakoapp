@@ -4,7 +4,7 @@ import { useTable } from 'react-table';
 
 import HighHeadline from "../HighHeadline";
 import {AiOutlineLeft, AiOutlineRight} from "react-icons/all";
-import Varify from "../Userinfo/Varify";
+import Usertablebtn from "../Userinfo/Usertablebtn";
 import BorderTemplate from ".././BorderTemplate";
 import Table from "./table/Table";
 import InventoryInformation from "./InventoryInformation";

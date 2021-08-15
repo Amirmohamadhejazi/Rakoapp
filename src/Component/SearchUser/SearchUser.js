@@ -22,9 +22,10 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import api, {baseURL} from "../../Common/api/SearchApi";
 
 // import componnet
-import Table from "./table/Table"
-import Varify from "../Userinfo/Varify";
+import CommonTable from "./table/common table"
+import Usertablebtn from "../Userinfo/Usertablebtn";
 import data from "bootstrap/js/src/dom/data";
+import Loading from "./../Loading";
 // const [dispatch] = React.useReducer(countReducer)
 
 const SearchUser = (props) => {
@@ -55,11 +56,9 @@ const SearchUser = (props) => {
                 accessor: 'image', // accessor is the "key" in the data,
                 Cell: function Cell(cell) {
                     return (
-                        <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "50px" , height: "50px"}}>
-                                         <img src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
-                                     </div>
-                            // <img  src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} alt='img'  width={200} height={200} className='br-50'/>
-
+                        <div className="flex-center boxShadow04 br-50 overflow-hidden mx-auto my-auto SearchUserImgSize" >
+                            <img src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
+                        </div>
                     )}
 
             },
@@ -79,36 +78,33 @@ const SearchUser = (props) => {
                 Header: 'مبلغ کل بدهی',
                 accessor: 'sum_seance',
             },
-        {
-            Header: 'اکشن',
-             Cell: function Cell(cell) {
-                return (
-                    <Varify classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
+            {
+                Header: 'اکشن',
+                  Cell: function Cell(cell) {
+                     return (
+                        <Usertablebtn classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
 
                 )}
-
-        },
-
-
+             },
         ]
 
 
 
 
+let value ={
+    Data_table:ApiData,
+    columns_table,
 
+}
 
     return (
-        <Data_Context.Provider value={{
-            Data_table:ApiData,
-            columns_table,
-
-        }}>
+        <Data_Context.Provider value={value}>
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}
                 <TopBar/>
 
-                <div className="flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "  id="SearchUser" >
+                <div className="flex-center flex-column col-11 br-16 mt-32 bg-white p-s16-m32-lg48-xl48 "  id="SearchUser" >
                     {/************************************************ Sec 1 ************************************************/}
                     <BorderTemplate class={"br-14 p-24"}>
 
@@ -145,10 +141,9 @@ const SearchUser = (props) => {
                         {
                             loading
                                 // اگر درست بود این
-                                ? <div>loading...</div>
+                                ? <Loading/>
                                 // اگر غلط بود این
-                                :
-                                <Table/>
+                                : <CommonTable/>
                         }
                     </BorderTemplate>
 

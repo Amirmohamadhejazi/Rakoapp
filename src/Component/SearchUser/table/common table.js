@@ -4,7 +4,7 @@ import {useTable} from 'react-table';
 import DataContext from "./../context/DataContext";
 
 
-const Table = (props) => {
+const CommonTable = (props) => {
 
     const dataContext = useContext(DataContext)
 
@@ -26,7 +26,7 @@ const Table = (props) => {
     return (
 
 
-        <table {...getTableProps()} className="w-100 mt-26 rtl">
+        <table {...getTableProps()} className="w-100 mt-26 rtl" id="CommonTable">
 
             <thead>
 
@@ -66,4 +66,4 @@ const Table = (props) => {
 
 }
 
-export default Table;
+export default CommonTable;
