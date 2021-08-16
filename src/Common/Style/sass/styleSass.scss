@@ -250,6 +250,34 @@ hr {
 }
 
 
+
+
+  .modal {
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+
+    .div.fade {
+      transition: opacity 0.15s linear;
+      padding: 0 !important;
+    }
+
+    .modal-dialog {
+      width: 100%;
+      margin: 2rem;
+      pointer-events: none;
+
+    }
+
+    .modal-dialog {
+      max-width: -webkit-fill-available;
+    }
+  }
+
+
+
+
+
 @media screen and (max-width: 600px) {
   .p-s16-m32-lg48-xl48{
     padding: 16px;

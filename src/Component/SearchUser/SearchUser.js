@@ -1,12 +1,12 @@
 import React, {useState , useContext , useEffect} from 'react';
-import DataContext from "../Userinfo/context/DataContext";
+import DataContext from "../Userinfo/context/UserInfoContext";
 import TopBar from "../TopBar";
 import BorderTemplate from "../BorderTemplate";
 import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
 
 //import contexs
-import Data_Context from "./context/DataContext";
+import Data_Context from "./context/SearchUserContext";
 
 // icon
 import {BiSearch, GiMachineGun} from "react-icons/all";
@@ -23,7 +23,7 @@ import api, {baseURL} from "../../Common/api/SearchApi";
 
 // import componnet
 import CommonTable from "./table/common table"
-import Usertablebtn from "../Userinfo/Usertablebtn";
+import Usertablebtn from "../Usertablebtn";
 import data from "bootstrap/js/src/dom/data";
 import Loading from "./../Loading";
 // const [dispatch] = React.useReducer(countReducer)
@@ -32,6 +32,9 @@ const SearchUser = (props) => {
 
     let [loading, setloading] = useState(true)
     let [ApiData, setApiData] = useState(false)
+
+    const [show, setShow] = useState(false);
+
     useEffect(()=>{
 
         async function asyncCall(){
@@ -94,7 +97,7 @@ const SearchUser = (props) => {
 let value ={
     Data_table:ApiData,
     columns_table,
-
+    show
 }
 
     return (

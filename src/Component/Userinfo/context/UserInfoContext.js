@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const dataContext = React.createContext({
+const userInfoContext = React.createContext({
     Data_table1:[],
     columns_table1:[],
 
@@ -9,4 +9,4 @@ const dataContext = React.createContext({
     columns_table2:[]
 })
 
-export default dataContext;
+export default userInfoContext;

@@ -7,14 +7,14 @@ import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "r
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
 import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
-import Usertablebtn from "./Usertablebtn";
+import Usertablebtn from "../Usertablebtn";
 import BorderTemplate from ".././BorderTemplate";
 
 import Table1 from "./table/Table1";
 import Table2 from "./table/Table2";
 
 //import contexs
-import DataContext from "./context/DataContext";
+import DataContext from "./context/UserInfoContext";
 
 const Userinfo = (props) => {
 
@@ -222,8 +222,8 @@ const Userinfo = (props) => {
         columns_table1,
 
         Data_table2,
-        columns_table2
-    };
+        columns_table2,
+    }
 
     return (
         <DataContext.Provider value={value}>
