@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { BsChatDots, IoClose, IoSettingsOutline} from "react-icons/all";
 
 const IconHeader=(props)=>{
@@ -13,15 +13,7 @@ const IconHeader=(props)=>{
     )
 }
 
-
 const TopBar = (props) => {
-
-    // const [count, setCount] = useState(1);
-    useEffect(() => {
-        // Update the document title using the browser API
-        // return //for componentDidMount
-    }, []);
-
     return (
         <div className='col-11 d-flex justify-content-between align-items-center   mt-32'>
             <div className="  flex-center h-100 ps-4" >

@@ -40,11 +40,11 @@ export default function  App() {
               <Switch>
 
                   <Route path="/login" exact render={props => <Login {...props} />}/>
-                  <Route path="/userinfo" exact render={props => <Userinfo {...props} />}/>
+                  {/*<Route path="/userinfo" exact render={props => <Userinfo {...props} />}/>*/}
                   <Route path="/statistic" exact render={props => <Statistic {...props} />}/>
                   <Route path="/searchUser" exact render={props => <SearchUser {...props} />}/>
 
-                   <AuthRoute path="/" authUser={User.isLogIn} component={(props) => <Login {...props}  />}  />
+                  <AuthRoute path="/" authUser={User.isLogIn} component={(props) => <Login {...props}  />}  />
               </Switch>
 
       </div>

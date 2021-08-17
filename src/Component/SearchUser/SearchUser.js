@@ -23,7 +23,7 @@ import api, {baseURL} from "../../Common/api/SearchApi";
 
 // import componnet
 import CommonTable from "./table/common table"
-import Usertablebtn from "../Usertablebtn";
+import Usertablebtn from "../Userinfo/Usertablebtn";
 import data from "bootstrap/js/src/dom/data";
 import Loading from "./../Loading";
 // const [dispatch] = React.useReducer(countReducer)
@@ -33,7 +33,7 @@ const SearchUser = (props) => {
     let [loading, setloading] = useState(true)
     let [ApiData, setApiData] = useState(false)
 
-    const [show, setShow] = useState(false);
+
 
     useEffect(()=>{
 
@@ -97,7 +97,6 @@ const SearchUser = (props) => {
 let value ={
     Data_table:ApiData,
     columns_table,
-    show
 }
 
     return (

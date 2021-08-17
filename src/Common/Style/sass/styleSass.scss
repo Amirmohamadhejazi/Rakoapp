@@ -264,13 +264,14 @@ hr {
 
     .modal-dialog {
       width: 100%;
-      margin: 2rem;
+      margin: 0;
       pointer-events: none;
-
+      padding: 0 !important;
     }
 
     .modal-dialog {
       max-width: -webkit-fill-available;
+      padding: 0 !important;
     }
   }
 

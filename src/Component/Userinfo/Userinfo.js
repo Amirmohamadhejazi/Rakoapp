@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { useTable } from 'react-table';
 
 import TopBar from "../TopBar";
-
 import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "react-icons/all";
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
 import HighHeadline from "../HighHeadline";
 import Under_page from "../Under_page";
-import Usertablebtn from "../Usertablebtn";
+import Usertablebtn from "./Usertablebtn";
 import BorderTemplate from ".././BorderTemplate";
 
 import Table1 from "./table/Table1";
@@ -230,8 +229,7 @@ const Userinfo = (props) => {
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}
-                <TopBar/>
-
+                <TopBar />
                 <div className="flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
                     {/************************************************ Sec 1 ************************************************/}
                     <BorderTemplate class={"mt-26 br-14 p-24"}>
