@@ -5,7 +5,7 @@ import api from "../Common/api/SearchApi";
 
 const IconHeader=(props)=>{
     return(
-        <div className={["  d-flex justify-content-end ", props.parentClass].join(" ")}>
+        <div className={["  d-flex justify-content-end ", props.parentClass].join(" ")} onClick={props.onClick}>
             <div className={[" flex-center boxShadow circle-icon-header ", props.childClass?props.childClass:"bg-white"].join(" ")} >
                 {
                     props.children
@@ -16,6 +16,7 @@ const IconHeader=(props)=>{
 }
 
 const TopBar = (props) => {
+    const dataContext = useContext(DataContext)
     return (
         <div className='col-11 d-flex justify-content-between align-items-center   mt-32'>
             <div className="  flex-center h-100 ps-4" >
@@ -38,7 +39,7 @@ const TopBar = (props) => {
             </div>
 
 
-            <IconHeader parentClass="mr-auto  align-items-center h-100 cursor-pointer"  childClass='bg-Iron' >
+            <IconHeader parentClass="mr-auto  align-items-center h-100 cursor-pointer"  childClass='bg-Iron' onClick={()=>{dataContext.toggleModal()}}>
                 <IoClose className=" Fs-s25-m34-lg34-xl34 c-Charade " />
             </IconHeader>
 

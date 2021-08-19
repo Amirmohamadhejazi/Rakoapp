@@ -2,7 +2,8 @@ import React from "react";
 
 
 const UsertablebtnContext = React.createContext({
-    showModal:[]
+    showModal:false,
+    toggleModal:()=>{}
 })
 
 export default UsertablebtnContext;

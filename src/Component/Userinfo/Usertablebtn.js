@@ -20,10 +20,12 @@ const Usertablebtn = (props) => {
 //         // useEffect(
 //         //     setshowModal(data)
 //         // ,[])
+    const toggleModal=()=>setshowModal(!showModal)
 
 
     let value={
-        showModal
+        showModal,
+        toggleModal
     }
 
     return (
@@ -43,12 +45,12 @@ const Usertablebtn = (props) => {
 
                     <Userinfo/>
 
-                    <div className="w-100 d-flex justify-content-end bg-white">
-                        {/*<div className="br-50 flex-center bg-dark cursor-pointer mr-40 mb-40" style={{width:"50px" , height:"50px"}} onClick={ShowHandler(false)} >*/}
-                        <div className="br-50 flex-center bg-dark cursor-pointer mr-40 mb-40" style={{width:"50px" , height:"50px"}} onClick={() => setshowModal(false)} >
-                            <IoClose className="Fs-30 text-white"/>
-                        </div>
-                    </div>
+                    {/*<div className="w-100 d-flex justify-content-end bg-white">*/}
+                    {/*    /!*<div className="br-50 flex-center bg-dark cursor-pointer mr-40 mb-40" style={{width:"50px" , height:"50px"}} onClick={ShowHandler(false)} >*!/*/}
+                    {/*    <div className="br-50 flex-center bg-dark cursor-pointer mr-40 mb-40" style={{width:"50px" , height:"50px"}} onClick={() => setshowModal(false)} >*/}
+                    {/*        <IoClose className="Fs-30 text-white"/>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
                 </ModalUser>
 
