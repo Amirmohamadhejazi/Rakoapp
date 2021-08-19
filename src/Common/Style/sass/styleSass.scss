@@ -252,28 +252,33 @@ hr {
 
 
 
-  .modal {
-    display: flex;
-    align-items: center;
-    padding-right: 0;
+.modal {
+  display: flex;
+  align-items: center;
+  padding-right: 0;
 
-    .div.fade {
-      transition: opacity 0.15s linear;
-      padding: 0 !important;
-    }
-
-    .modal-dialog {
-      width: 100%;
-      margin: 0;
-      pointer-events: none;
-      padding: 0 !important;
-    }
-
-    .modal-dialog {
-      max-width: -webkit-fill-available;
-      padding: 0 !important;
-    }
+  .div.fade {
+    transition: opacity 0.15s linear;
+    padding: 0 !important;
   }
+
+  .modal-dialog {
+    width: 100%;
+    margin: 0;
+    pointer-events: none;
+    padding: 0 !important;
+  }
+
+  .modal-dialog {
+    max-width: -webkit-fill-available;
+    padding: 0 !important;
+  }
+
+  .modal-content {
+    border: 0;
+  }
+}
+
 
 
 

@@ -7,9 +7,9 @@ const ModalUser = (props) => {
     const dataContext = useContext(DataContext)
 
 
-    const [show, setshow] = useState(dataContext.showModal);
+    // const [show, setshow] = useState(dataContext.showModal);
     return (
-                <Modal show={show}  >
+                <Modal className="p-0" show={dataContext.showModal}  >
 
                     {props.children}
 

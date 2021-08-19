@@ -1,5 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { BsChatDots, IoClose, IoSettingsOutline} from "react-icons/all";
+import DataContext from "../Component/Userinfo/context/UsertablebtnContext";
+import api from "../Common/api/SearchApi";
 
 const IconHeader=(props)=>{
     return(
@@ -19,7 +21,7 @@ const TopBar = (props) => {
             <div className="  flex-center h-100 ps-4" >
 
                 <IconHeader>
-                    <IoSettingsOutline className="Fs-s25-m34-lg34-xl34  c-silver-sand"    />
+                    <IoSettingsOutline className=" Fs-s25-m34-lg34-xl34  c-silver-sand"    />
                 </IconHeader>
 
                 <IconHeader parentClass="mx-3">
@@ -36,9 +38,10 @@ const TopBar = (props) => {
             </div>
 
 
-            <IconHeader parentClass="mr-auto  align-items-center h-100" childClass='bg-Iron' >
-                <IoClose className="Fs-s25-m34-lg34-xl34 c-Charade" />
+            <IconHeader parentClass="mr-auto  align-items-center h-100 cursor-pointer"  childClass='bg-Iron' >
+                <IoClose className=" Fs-s25-m34-lg34-xl34 c-Charade " />
             </IconHeader>
+
 
         </div>
     );
