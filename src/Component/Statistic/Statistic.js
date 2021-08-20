@@ -11,10 +11,6 @@ import InventoryInformation from "./InventoryInformation";
 
 import DataContext from "./context/DataContext";
 
-
-
-// import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
-
 const Statistic = (props) => {
 
     const [userStatic, setuserStatic] = useState([
@@ -278,11 +274,6 @@ const Statistic = (props) => {
 
     //************************************************ sec 3 table End ************************************************
 
-    useEffect(() => {
-        // Update the document title using the browser API
-        // return //for componentDidMount
-    }, []);
-
     let value={
         userStatic,
 
@@ -307,7 +298,7 @@ const Statistic = (props) => {
 
                         <div className="w-100 d-flex flex-row justify-content-between">
 
-                            <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
+                            <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end W-20" />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 W-20 "/></span>
 
                             <div className=" d-flex flex-row justify-content-end">
                                 <span className=" c-Charade Fs-14 fw-light">(بر حسب تومان)</span>
@@ -315,7 +306,7 @@ const Statistic = (props) => {
                             </div>
                         </div>
 
-                        <hr className="mt-20 mb-20" style={{width: "100%"}}/>
+                        <hr className="mt-20 mb-20 w-100"/>
 
                         <Table/>
 
@@ -326,15 +317,14 @@ const Statistic = (props) => {
 
                         <div className="w-100 d-flex justify-content-between">
 
-                            <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width: "20px"}}/>شنبه ۱۴ بهمن<AiOutlineRight className="Fs-16 " style={{width: "20px"}}/></span>
+                            <span className=" bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end W-20"/>شنبه ۱۴ بهمن<AiOutlineRight className="Fs-16 W-20 "/></span>
                             <span className=" c-Charade Fs-16 fw-bold">لیست رزرو ها</span>
 
                         </div>
 
-                        <hr className="mt-20 mb-20 " style={{width: "100%"}}/>
+                        <hr className="mt-20 mb-20 w-100 "/>
 
-
-                        <div className="w-100 flex-center" style={{height:"300px"}}>
+                        <div className="w-100 flex-center H-300">
                             <h1>Nemodar</h1>
                         </div>
 

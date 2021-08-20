@@ -7,8 +7,6 @@ import Statistic from "./Component/Statistic/Statistic";
 import SearchUser from "./Component/SearchUser/SearchUser";
 
 
-
-
 const AuthRoute = ({ component: Component, authUser,props, ...rest }) => {
   console.log("authUser")
   console.log(authUser)
@@ -40,7 +38,6 @@ export default function  App() {
               <Switch>
 
                   <Route path="/login" exact render={props => <Login {...props} />}/>
-                  {/*<Route path="/userinfo" exact render={props => <Userinfo {...props} />}/>*/}
                   <Route path="/statistic" exact render={props => <Statistic {...props} />}/>
                   <Route path="/searchUser" exact render={props => <SearchUser {...props} />}/>
 

@@ -33,8 +33,6 @@ const SearchUser = (props) => {
     let [loading, setloading] = useState(true)
     let [ApiData, setApiData] = useState(false)
 
-
-
     useEffect(()=>{
 
         async function asyncCall(){
@@ -60,7 +58,7 @@ const SearchUser = (props) => {
                 Cell: function Cell(cell) {
                     return (
                         <div className="flex-center boxShadow04 br-50 overflow-hidden mx-auto my-auto SearchUserImgSize" >
-                            <img src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
+                            <img src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} className="object-fit-cover w-100 h-100"  alt="user-pic"/>
                         </div>
                     )}
 
@@ -112,13 +110,13 @@ let value ={
 
                         <HighHeadline text={"جستجوی کاربر"} />
 
-                        <div className="w-100  flex-center flex-row  " style={{  height:"60px"}} >
+                        <div className="w-100 flex-center flex-row H-60" >
 
-                                <div className=" bg-dark flex-center mr-20" style={{width:"60px" , height:"60px" , borderRadius:"10px"}}>
+                                <div className=" bg-dark flex-center mr-20 W-60 H-60" style={{borderRadius:"10px"}}>
                                     <BiSearch className="Fs-40 text-white"/>
                                 </div>
 
-                                <Dropdown as={ButtonGroup} className="border1-Gray-sand h-100 c-Gray-sand" style={{width:"120px" ,borderRadius: "10px 0 0 10px"}}>
+                                <Dropdown as={ButtonGroup} className="border1-Gray-sand h-100 c-Gray-sand W-120" style={{borderRadius: "10px 0 0 10px"}}>
 
                                     <Dropdown.Toggle split id="dropdown-split-basic" className="Fs-16 c-Gray-sand rtl" style={{ borderRadius: "  0 0 10px 10px"}} >
                                         مربی
@@ -131,7 +129,7 @@ let value ={
 
                                 </Dropdown>
 
-                                <input type="text" className="border1-Gray-sand h-100 p-16" style={{width:"300px" , borderRadius: "0 10px 10px 0"}} />
+                                <input type="text" className="border1-Gray-sand h-100 p-16 W-300" style={{ borderRadius: "0 10px 10px 0"}} />
                         </div>
 
                     </BorderTemplate>
@@ -142,13 +140,10 @@ let value ={
 
                         {
                             loading
-                                // اگر درست بود این
                                 ? <Loading/>
-                                // اگر غلط بود این
                                 : <CommonTable/>
                         }
                     </BorderTemplate>
-
 
                 </div>
             </div>

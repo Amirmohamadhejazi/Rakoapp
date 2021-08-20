@@ -22,14 +22,14 @@ const Table = (props) => {
 
     return (
 
-            <table {...getTableProps()} className="w-100 rtl  " >
+            <table {...getTableProps()} className="w-100 rtl" >
 
                 <thead>
                 {headerGroups.map(headerGroup => (
                     <tr  {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
 
-                            <th{...column.getHeaderProps()} style={{ height:"40px"}} className="c-Masala Fs-14 text-center ltr">
+                            <th{...column.getHeaderProps()}className="c-Masala Fs-14 text-center H-40 ltr">
                                 {column.render('Header')}
                             </th>
 
@@ -45,7 +45,7 @@ const Table = (props) => {
                             {row.cells.map(cell => {
                                 return (
                                     <td{...cell.getCellProps()}
-                                       className="c-Masala Fs-14 fw-bold text-center" style={{ height:"40px"}}>
+                                       className="c-Masala Fs-14 fw-bold text-center H-40">
                                         {cell.render('Cell')}
                                     </td>
                                 )

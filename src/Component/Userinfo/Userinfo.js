@@ -247,10 +247,10 @@ const Userinfo = (props) => {
                                 }
                             </div>
 
-                            <div className="d-flex flex-column align-items-center justify-content-around h-75" style={{ width:"40%"}}>
+                            <div className="d-flex flex-column align-items-center justify-content-around h-75 w-40" >
 
-                                <div className="flex-center boxShadow04 br-50 overflow-hidden " style={{width: "10vw" , height: "10vw"}}>
-                                    <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover" width="100%" height="100%" alt="user-pic"/>
+                                <div className="flex-center boxShadow04 br-50 overflow-hidden H-115 W-115">
+                                    <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover w-100 h-100" alt="user-pic"/>
                                 </div>
 
                                 {
@@ -259,13 +259,13 @@ const Userinfo = (props) => {
                                     )
                                 }
 
-                                <div className="d-flex w-75 justify-content-around" style={{height:"28px"}}>
-                                    <div className=" flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
+                                <div className="d-flex w-75 justify-content-around H-30">
+                                    <div className=" flex-center c-Charade border2-Charade br-6 W-70">
                                             <span className="Fs-12 text-bold">
                                                 تسویه <IoReceiptOutline className="c-Charade Fs-12"/>
                                             </span>
                                     </div>
-                                    <div className="  flex-center c-Charade border2-Charade br-6" style={{width: "72px"}}>
+                                    <div className="  flex-center c-Charade border2-Charade br-6 W-70">
                                             <span className="Fs-12 text-bold">
                                                 تماس <FiPhoneCall className="c-Charade Fs-12"/>
                                             </span>
@@ -298,7 +298,7 @@ const Userinfo = (props) => {
                         <div className=" d-flex flex-row justify-content-between ">
 
                             <div className=" d-flex flex-row "  >
-                                <span className="bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end " style={{width:"20px"}} />۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 " style={{width:"20px"}} /></span>
+                                <span className="bg-Cultured d-flex align-items-center c-Spanish-Gray Fs-14 "><AiOutlineLeft className="Fs-16 d-flex align-items-end W-20"/>۱۳۹۹/۱۱/۱ - ۱۳۹۹/۱۲/۱<AiOutlineRight className="Fs-16 W-20"/></span>
                                 <span className="d-flex align-items-center c-Mountain-Mist Fs-14 pl-20" dir="rtl">فیلتر براساس تاریخ:</span>
                             </div>
 

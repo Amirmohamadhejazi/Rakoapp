@@ -11,17 +11,7 @@ import api from "../../Common/api/SearchApi";
 const Usertablebtn = (props) => {
 
     const [showModal, setshowModal] = useState(false);
-
-
-
-
-//     function ShowHandler(data) {
-//
-//         // useEffect(
-//         //     setshowModal(data)
-//         // ,[])
     const toggleModal=()=>setshowModal(!showModal)
-
 
     let value={
         showModal,
@@ -31,27 +21,13 @@ const Usertablebtn = (props) => {
     return (
         <DataContext.Provider value={value} >
 
-                <div className="w-100 d-flex justify-content-center">
-                    <div onClick={() => setshowModal(true)} className={props.classParent}
-                         style={{width: "80px", height: "30px", cursor: "pointer"}}>
+                <div className="w-100 d-flex justify-content-center" id="modal_dialog">
+                    <div onClick={() => setshowModal(true)} className={["W-80 H-30 cursor-pointer" ,props.classParent].join(" ")}>
                         <span className={props.classChild}>{props.text}</span>
                     </div>
-                    {/*<div onClick={ShowHandler(true)} className={props.classParent}*/}
-                    {/*     style={{width: "80px", height: "30px", cursor: "pointer"}}>*/}
-                    {/*    <span className={props.classChild}>{props.text}</span>*/}
-                    {/*</div>*/}
                 </div>
                 <ModalUser>
-
                     <Userinfo/>
-
-                    {/*<div className="w-100 d-flex justify-content-end bg-white">*/}
-                    {/*    /!*<div className="br-50 flex-center bg-dark cursor-pointer mr-40 mb-40" style={{width:"50px" , height:"50px"}} onClick={ShowHandler(false)} >*!/*/}
-                    {/*    <div className="br-50 flex-center bg-dark cursor-pointer mr-40 mb-40" style={{width:"50px" , height:"50px"}} onClick={() => setshowModal(false)} >*/}
-                    {/*        <IoClose className="Fs-30 text-white"/>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-
                 </ModalUser>
 
         </DataContext.Provider>
