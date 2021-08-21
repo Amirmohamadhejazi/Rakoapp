@@ -61,7 +61,6 @@ const SearchUser = (props) => {
                             <img src={cell.value!==null?`${baseURL}${cell.value}`:'/Assets/Img/man-avatar.svg'} className="object-fit-cover w-100 h-100"  alt="user-pic"/>
                         </div>
                     )}
-
             },
             {
                 Header: 'نام و نام خانوادگی',
@@ -88,9 +87,6 @@ const SearchUser = (props) => {
                 )}
              },
         ]
-
-
-
 
 let value ={
     Data_table:ApiData,
