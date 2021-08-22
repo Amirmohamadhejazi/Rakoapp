@@ -1,4 +1,4 @@
-import React, {useState , useContext , useEffect} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import DataContext from "../Userinfo/context/UserInfoContext";
 import TopBar from "../TopBar";
 import BorderTemplate from "../BorderTemplate";
@@ -26,6 +26,9 @@ import CommonTable from "./table/common table"
 import Usertablebtn from "../Userinfo/Usertablebtn";
 import data from "bootstrap/js/src/dom/data";
 import Loading from "./../Loading";
+import { useTable, useRowSelect } from 'react-table'
+
+
 // const [dispatch] = React.useReducer(countReducer)
 
 const SearchUser = (props) => {
@@ -80,18 +83,26 @@ const SearchUser = (props) => {
             },
             {
                 Header: 'اکشن',
-                  Cell: function Cell(cell) {
+                Cell: function Cell(cell) {
                      return (
-                        <Usertablebtn classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
+                        <Usertablebtn classParent={"border1-Charade br-4 flex-center " } id={cell.row} classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
+                  )}
 
-                )}
+
              },
+
+
+
+
         ]
 
-let value ={
+
+    let value ={
     Data_table:ApiData,
     columns_table,
 }
+
+
 
     return (
         <Data_Context.Provider value={value}>

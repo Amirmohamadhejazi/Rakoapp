@@ -16,7 +16,7 @@ const Usertablebtn = (props) => {
 
 
 
-    const Datamodal=(e , index="hi")=>console.log(index)
+    const Datamodal=(e , index="hi")=>console.log(props.id)
 
 
 
@@ -30,14 +30,13 @@ const Usertablebtn = (props) => {
 
                 <div className="w-100 d-flex justify-content-center" id="modal_dialog">
                     <div onClick={(e , index) => (
-                        setshowModal(true),
-                            Datamodal(e ,index)
+                        setshowModal(true)
                     )} className={["W-80 H-30 cursor-pointer" ,props.classParent].join(" ")}>
                         <span className={props.classChild}>{props.text}</span>
                     </div>
                 </div>
                 <ModalUser>
-                    <Userinfo/>
+                    <Userinfo id={props.id}/>
                 </ModalUser>
 
         </DataContext.Provider>

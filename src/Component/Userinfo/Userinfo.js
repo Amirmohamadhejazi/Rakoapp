@@ -14,45 +14,72 @@ import Table2 from "./table/Table2";
 
 //import contexs
 import DataContext from "./context/UserInfoContext";
+import api, {baseURL} from "../../Common/api/SearchApi";
+import Loading from "../Loading";
+import CommonTable from "../SearchUser/table/common table";
 
 const Userinfo = (props) => {
 
+    const cellInformation = props.id
+    console.log(cellInformation)
+
     // **********************sec 1-1
     const [userStatistic, setUserStatistic] = useState([
-
-        {header:"مجموع ساعات رزرو شده",
-            subHeader:"۵۶۴ ساعت",
-            classes:"border-r5-Charade"
+        {
+            header:"مجموع ساعات رزرو شده",
+            subHeader:cellInformation.original.sum_seance,
+            classes:"border-r5-Charade",
+            Cell: function Cell(cell) {
+                console.log(cell.value)
+                return (
+                    cell.value!==null? cellInformation.original.sum_seance
+                        : "______"
+                )}
         },
 
-        {header:"پرداختی در مخل در ماه",
-            subHeader:moneyFormat(26512585),
+
+        {header:"پرداختی در محل در ماه",
+            // subHeader:moneyFormat(26512585),
+            subHeader:"_____",
             classes:"border-r5-Charade"
         },
         {header:"پرداختی آنلاین در ماه",
-            subHeader:moneyFormat(2555023),
+            // subHeader:moneyFormat(2555023),
+            subHeader:"_____",
             classes:"border-r5-Charade"
         },
-        {header:"ساعت رزرو شده در ماه",
-            subHeader:"۱۲۲ ساعت",
-            classes:"border-r5-Charade "
+
+        {
+            header:"ساعت رزرو شده در ماه",
+            subHeader:cellInformation.original.sum_seance_in_month,
+            classes:"border-r5-Charade",
+            Cell: function Cell(cell) {
+                console.log(cell.value)
+                return (
+                    cell.value!==null? cellInformation.original.sum_seance
+                        : "______"
+                )}
         },
 
 
         {header:"مقدار بدهکاری",
-            subHeader:moneyFormat(251255023),
+            // subHeader:moneyFormat(251255023),
+            subHeader:"_____",
             classes:"border-r5-Burning-Orange"
         },
         {header:"مبلغ کل پرداخت شده",
-            subHeader:moneyFormat(5123511),
+            // subHeader:moneyFormat(5123511),
+            subHeader:"_____",
+
             classes:"border-r5-Charade"
         },
 
     ]);
 
     // **********************sec 1-2
+
     const [UserInfo, setUserInfo] = useState([
-        {header:" هوشنگ مرادی لنکرانی",
+        {header: cellInformation.original.name,
             classes:"Fs-16"
         },
         {header:"بازیکن",
@@ -64,18 +91,20 @@ const Userinfo = (props) => {
     ]);
 
 // ********************** sec 2 table
-
+    const ProfileWeek = cellInformation.original.sum_seance_in_days_of_week
+    const Sum_Week = ProfileWeek[0] + ProfileWeek[1] + ProfileWeek[2] + ProfileWeek[3] + ProfileWeek[4] + ProfileWeek[5] + ProfileWeek[6]
     const Data_table1 = React.useMemo(
+
         () => [
             {
-                col1:  '۱۲ ساعت',
-                col2:  '۹ ساعت',
-                col3:  '۴ ساعت',
-                col4:  '۶ ساعت',
-                col5:  '۸ ساعت' ,
-                col6:  '۴ ساعت',
-                col7:  '۹ ساعت',
-                col8:  '۵۲ ساعت',
+                Saturday: ProfileWeek[0],
+                Sunday: ProfileWeek[1],
+                Monday: ProfileWeek[2],
+                Tuesday: ProfileWeek[3],
+                Wednesday: ProfileWeek[4],
+                Thursday: ProfileWeek[5],
+                Friday: ProfileWeek[6],
+                SumWeek: Sum_Week
             }
         ],
         []
@@ -86,36 +115,36 @@ const Userinfo = (props) => {
 
             {
                 Header: 'شنبه',
-                accessor: 'col1', // accessor is the "key" in the data
+                accessor: 'Saturday', // accessor is the "key" in the data
             },
             {
                 Header: 'یک شنبه',
-                accessor: 'col2',
+                accessor: 'Sunday',
             },
             {
                 Header: 'دوشنبه',
-                accessor: 'col3', // accessor is the "key" in the data
+                accessor: 'Monday', // accessor is the "key" in the data
             },
             {
                 Header: 'سه‌شنبه',
-                accessor: 'col4', // accessor is the "key" in the data
+                accessor: 'Tuesday', // accessor is the "key" in the data
             },
             {
                 Header: 'چهارشنبه',
-                accessor: 'col5',
+                accessor: 'Wednesday',
             },
             {
                 Header: 'پنجشنبه',
-                accessor: 'col6', // accessor is the "key" in the data
+                accessor: 'Thursday', // accessor is the "key" in the data
             }
             ,
             {
                 Header: 'جمعه',
-                accessor: 'col7',
+                accessor: 'Friday',
             },
             {
                 Header: 'کل هفته',
-                accessor: 'col8',
+                accessor: 'SumWeek',
             },
         ],
         []
@@ -149,66 +178,48 @@ const Userinfo = (props) => {
 
     // ************************************************ sec 3 table Start ************************************************
 
+    let [Data_table2, setData_table2] = useState(cellInformation.original.reserved_plan_in_month)
 
-    const Data_table2 = React.useMemo(
-        () => [
-            {
-                col1: '۹۹/۱۱/۵',
-                col2: '۱۴:۰۰',
-                col3: '۱۶:۰۰',
-                col4: 'فعال',
-                col5:  'آنلاین' ,
-                col6:<Usertablebtn classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
-
-            },
-            {
-                col1: '۹۹/۱۱/۴',
-                col2: '۱۴:۰۰',
-                col3: '۱۶:۰۰',
-                col4: 'لغو شده',
-                col5: '-',
-                col6:<Usertablebtn classParent={"border-AthensGray br-4 flex-center " } classChild={"Fs-10 c-AthensGray"} text={"پرداخت نشد"}/>,
-
-            },
-            {
-                col1: '۹۹/۱۱/۴',
-                col2: '۱۴:۰۰',
-                col3: '۱۶:۰۰',
-                col4: 'تمام شده',
-                col5: 'آفلاین',
-                col6:<Usertablebtn classParent={"border1-Charade br-4 flex-center " } classChild={"Fs-10 c-Charade"} text={"پرداخت شد"}/>,
-            },
-        ],
-        []
-    )
 
     const columns_table2 = React.useMemo(
         () => [
             {
                 Header: 'تاریخ',
-                accessor: 'col1', // accessor is the "key" in the data
+                accessor: "day",
             },
             {
                 Header: 'ساعت شروع',
-                accessor: 'col2',
+                accessor: 'start_time',
             },
             {
                 Header: 'ساعت پایان',
-                accessor: 'col3', // accessor is the "key" in the data
+                accessor: 'end_time',
             },
             {
                 Header: 'وضعیت رزرو',
-                accessor: 'col4',
+
+
+                accessor: 'reserved_from_panel',
+
+                Cell: function Cell(cell) {
+                    console.log(cell.value)
+                    return (
+                        <span>{cell.value!==true?"رزور نشد":"رزرو ثبت شد"}</span>
+                    )}
+
+
             },
             {
                 Header: 'وضعیت پرداخت',
-                accessor: 'col5', // accessor is the "key" in the data
+                accessor: 'is_paid',
+
+                Cell: function Cell(cell) {
+                    console.log(cell.value)
+                    return (
+                        cell.value!==true? <Usertablebtn classParent={"border1-Charade br-4 flex-center  " } id={cell.row} classChild={"Fs-12 c-Charade"} text={"پرداخت"}/>
+                        :<span>پرداخت انجام شد</span>
+                    )}
             }
-            ,
-            {
-                Header: 'عملیات',
-                accessor: 'col6',
-            },
         ],
         []
     )
@@ -249,8 +260,10 @@ const Userinfo = (props) => {
 
                             <div className="d-flex flex-column align-items-center justify-content-around h-75 w-40" >
 
-                                <div className="flex-center boxShadow04 br-50 overflow-hidden H-115 W-115">
-                                    <img src='/Assets/Img/Userinfo/user.png' className="object-fit-cover w-100 h-100" alt="user-pic"/>
+
+
+                                <div className="flex-center boxShadow04 br-50 overflow-hidden mx-auto my-auto SearchUserImgSize" >
+                                    <img src={cellInformation.original.image!==null? `${baseURL}`+cellInformation.original.image :'/Assets/Img/man-avatar.svg'} className="object-fit-cover w-100 h-100"  alt="user-pic"/>
                                 </div>
 
                                 {
@@ -326,9 +339,15 @@ const Userinfo = (props) => {
 
                         <hr/>
 
-                        <Table2 />
+                        {
+                            Data_table2.length
+                                ===0? <div className="flex-center H-200"><span>اخیرا رزروی برای کاربر ثبت نشده!</span></div>
+                                : <Table2 />
+                        }
 
-                        <Under_page/>
+
+
+                        {/*<Under_page/>*/}
 
                     </BorderTemplate>
 
