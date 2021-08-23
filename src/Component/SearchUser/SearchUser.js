@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect, useReducer} from 'react';
 import DataContext from "../Userinfo/context/UserInfoContext";
 import TopBar from "../TopBar";
 import BorderTemplate from "../BorderTemplate";
@@ -21,6 +21,9 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import axios
 import api, {baseURL} from "../../Common/api/SearchApi";
 
+// import Reducer
+import SearchUserReducer from "./context/Reducer/SearchUserReducer";
+
 // import componnet
 import CommonTable from "./table/common table"
 import Usertablebtn from "../Userinfo/Usertablebtn";
@@ -29,32 +32,10 @@ import Loading from "./../Loading";
 import { useTable, useRowSelect } from 'react-table'
 
 
-// const [dispatch] = React.useReducer(countReducer)
-
 const SearchUser = (props) => {
 
-    let [loading, setloading] = useState(true)
-    let [ApiData, setApiData] = useState(false)
-
-    useEffect(()=>{
-
-        async function asyncCall(){
-
-            await api.get(`/club_owner/reserved_mng/top_users?club_id=5`).then (response=>{
-                    console.log(response.data.data.top_users)
-                    setApiData(response.data.data.top_users);
-                    setloading(false)
-                })
-        }
-
-        asyncCall()
-    },[])
-
-
-
-
-
-    const columns_table =  [
+    const [state , dispatch] = useReducer(SearchUserReducer , {
+        columns_table :  [
             {
                 Header: 'تصویر',
                 accessor: 'image', // accessor is the "key" in the data,
@@ -84,22 +65,50 @@ const SearchUser = (props) => {
             {
                 Header: 'اکشن',
                 Cell: function Cell(cell) {
-                     return (
+                    return (
                         <Usertablebtn classParent={"border1-Charade br-4 flex-center " } id={cell.row} classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
-                  )}
+                    )}
 
 
-             },
+            },
 
 
 
 
-        ]
+        ],
+
+        loading : true,
+
+        ApiData:false
+    })
+
+
+
+    useEffect(()=>{
+        console.log(state)
+    },[state])
+
+    // let [ApiData, setApiData] = useState(false)
+
+    useEffect(()=>{
+
+        async function asyncCall(){
+
+            await api.get(`/club_owner/reserved_mng/top_users?club_id=5`).then (response=>{
+                    dispatch({ type: "setApiData" , payload:{data:response.data.data.top_users} });
+                    // setApiData(response.data.data.top_users);
+                    dispatch({ type: "setLoading"  });
+                })
+        }
+
+        asyncCall()
+    },[])
+
 
 
     let value ={
-    Data_table:ApiData,
-    columns_table,
+    Data_table:state.ApiData,
+    columns_table:state.columns_table,
 }
 
 
@@ -128,7 +137,6 @@ const SearchUser = (props) => {
                                     <Dropdown.Toggle split id="dropdown-split-basic" className="Fs-16 c-Gray-sand rtl" style={{ borderRadius: "  0 0 10px 10px"}} >
                                         مربی
                                     </Dropdown.Toggle>
-
                                     <Dropdown.Menu className="Fs-16 c-Gray-sand rtl">
                                         <Dropdown.Item>مربی</Dropdown.Item>
                                         <Dropdown.Item> بازیکن </Dropdown.Item>
@@ -146,12 +154,11 @@ const SearchUser = (props) => {
                         <HighHeadline text={"مربیان با بیشترین بدهی"} />
 
                         {
-                            loading
+                            state.loading
                                 ? <Loading/>
                                 : <CommonTable/>
                         }
                     </BorderTemplate>
-
                 </div>
             </div>
         </Data_Context.Provider>

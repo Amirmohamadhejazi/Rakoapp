@@ -202,7 +202,7 @@ const Userinfo = (props) => {
                 accessor: 'reserved_from_panel',
 
                 Cell: function Cell(cell) {
-                    console.log(cell.value)
+                    // console.log(cell.value)
                     return (
                         <span>{cell.value!==true?"رزور نشد":"رزرو ثبت شد"}</span>
                     )}
@@ -214,7 +214,7 @@ const Userinfo = (props) => {
                 accessor: 'is_paid',
 
                 Cell: function Cell(cell) {
-                    console.log(cell.value)
+                    // console.log(cell.value)
                     return (
                         cell.value!==true? <Usertablebtn classParent={"border1-Charade br-4 flex-center  " } id={cell.row} classChild={"Fs-12 c-Charade"} text={"پرداخت"}/>
                         :<span>پرداخت انجام شد</span>

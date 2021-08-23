@@ -22,7 +22,7 @@ const ModalUser = (props) => {
     // },[])
 
     return (
-                <Modal  className="p-0" id="ModalTableBtn" show={dataContext.showModal}  >
+                <Modal  className="p-0" id="ModalTableBtn" show={dataContext.ShowModal}  >
 
                     {props.children}
 

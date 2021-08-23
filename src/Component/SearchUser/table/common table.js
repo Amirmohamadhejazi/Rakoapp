@@ -18,9 +18,8 @@ const CommonTable = (props) => {
         rows,
         prepareRow,
     } = useTable({columns, data})
-
-    console.log(columns)
-    console.log(data)
+    // console.log(columns)
+    // console.log(data)
 
     return (
 
