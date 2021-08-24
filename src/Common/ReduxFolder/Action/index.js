@@ -10,5 +10,5 @@
  });
 export  const   Decrease_Number=(counter)=>({
      type: Const.Decrease_Number,
-    counter:counter,
+     counter:counter,
  });
