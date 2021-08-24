@@ -5,6 +5,7 @@ import Login from "./Component/Login/Login";
 import Userinfo from "./Component/Userinfo/Userinfo";
 import Statistic from "./Component/Statistic/Statistic";
 import SearchUser from "./Component/SearchUser/SearchUser";
+import ReduxTest from "./Common/ReduxFolder/ReduxTest";
 
 
 const AuthRoute = ({ component: Component, authUser,props, ...rest }) => {
@@ -40,6 +41,7 @@ export default function  App() {
                   <Route path="/login" exact render={props => <Login {...props} />}/>
                   <Route path="/statistic" exact render={props => <Statistic {...props} />}/>
                   <Route path="/searchUser" exact render={props => <SearchUser {...props} />}/>
+                  <Route path="/redux" exact render={props => <ReduxTest {...props} />}/>
 
                   <AuthRoute path="/" authUser={User.isLogIn} component={(props) => <Login {...props}  />}  />
               </Switch>

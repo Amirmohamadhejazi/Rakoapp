@@ -4,8 +4,11 @@
 
 
 // ***************Login*************
- export  const   Get_Number_Email=(isPhone,value)=>({
-     type: Const.Get_Number_Email,
-     isPhone:isPhone,
-     value:value
+ export  const   Increase_Number=(counter)=>({
+     type: Const.Increase_Number,
+     counter:counter,
+ });
+export  const   Decrease_Number=(counter)=>({
+     type: Const.Decrease_Number,
+    counter:counter,
  });

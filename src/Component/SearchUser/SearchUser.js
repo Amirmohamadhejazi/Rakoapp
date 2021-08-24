@@ -158,6 +158,8 @@ const SearchUser = (props) => {
                                 ? <Loading/>
                                 : <CommonTable/>
                         }
+
+                        <span className="Fs-26 w-100 flex-center">test</span>
                     </BorderTemplate>
                 </div>
             </div>
