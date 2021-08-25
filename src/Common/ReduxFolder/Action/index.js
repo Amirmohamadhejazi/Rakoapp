@@ -1,7 +1,4 @@
-
- import * as Const  from "./../const/index"
-
-
+import * as Const  from "./../const/index"
 
 // ***************Login*************
  export  const   Increase_Number=(counter)=>({

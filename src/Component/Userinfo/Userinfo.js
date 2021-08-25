@@ -240,7 +240,7 @@ const Userinfo = (props) => {
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}
-                <TopBar />
+                {/*<TopBar />*/}
                 <div className="flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
                     {/************************************************ Sec 1 ************************************************/}
                     <BorderTemplate class={"mt-26 br-14 p-24"}>

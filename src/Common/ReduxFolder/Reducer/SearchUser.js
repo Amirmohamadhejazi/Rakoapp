@@ -1,6 +1,5 @@
-import * as Const from './../const/index'
 let initial={
-    loading:true
+    loading:true,
 }
 
 export const SearchUser = (state= initial, action) => {

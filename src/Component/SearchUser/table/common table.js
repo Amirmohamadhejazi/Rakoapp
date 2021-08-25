@@ -1,15 +1,14 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {useTable} from 'react-table';
 
-import DataContext from "../context/SearchUserContext";
+
+import {useSelector} from "react-redux";
 
 
 const CommonTable = (props) => {
 
-    const dataContext = useContext(DataContext)
-
-    const data = dataContext.Data_table;
-    const columns= dataContext.columns_table;
+    const columns = useSelector(state => state.ApiData.columnsSearchUser);
+    const data = useSelector(state => state.ApiData.DataSearchUser);
 
     const {
         getTableProps,
@@ -18,8 +17,6 @@ const CommonTable = (props) => {
         rows,
         prepareRow,
     } = useTable({columns, data})
-    // console.log(columns)
-    // console.log(data)
 
     return (
 
