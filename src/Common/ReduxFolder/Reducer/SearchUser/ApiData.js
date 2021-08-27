@@ -1,5 +1,5 @@
-import {baseURL} from "../../api/SearchApi";
-import Usertablebtn from "../../../Component/Userinfo/Usertablebtn";
+import {baseURL} from "../../../api/SearchApi";
+import Usertablebtn from "../../../../Component/Userinfo/Usertablebtn";
 import React from "react";
 
 let initial={

@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useTable } from 'react-table';
 
+import {useDispatch, useSelector} from 'react-redux'
+
 import TopBar from "../TopBar";
 import { FiPhoneCall ,IoReceiptOutline , AiOutlineRight , AiOutlineLeft} from "react-icons/all";
 import {moneyFormat} from "../../Common/componennt/HelperFunction/HelperFuction";
@@ -20,161 +22,165 @@ import CommonTable from "../SearchUser/table/common table";
 
 const Userinfo = (props) => {
 
-    const cellInformation = props.id
-    console.log(cellInformation)
+
+            const cellInformation = useSelector(state => state.Userinfo.DataRowTable);
+
+                const [userStatistic, setUserStatistic] = useState([
+                    {
+                        header:"مجموع ساعات رزرو شده",
+                        subHeader:cellInformation.original.sum_seance,
+                        classes:"border-r5-Charade",
+                        Cell: function Cell(cell) {
+                            console.log(cell.value)
+                            return (
+                                cell.value!==null? cellInformation.original.sum_seance
+                                    : "______"
+                            )}
+                    },
+
+
+                    {header:"پرداختی در محل در ماه",
+                        // subHeader:moneyFormat(26512585),
+                        subHeader:"_____",
+                        classes:"border-r5-Charade"
+                    },
+                    {header:"پرداختی آنلاین در ماه",
+                        // subHeader:moneyFormat(2555023),
+                        subHeader:"_____",
+                        classes:"border-r5-Charade"
+                    },
+
+                    {
+                        header:"ساعت رزرو شده در ماه",
+                        subHeader:cellInformation.original.sum_seance_in_month,
+                        classes:"border-r5-Charade",
+                        Cell: function Cell(cell) {
+                            console.log(cell.value)
+                            return (
+                                cell.value!==null? cellInformation.original.sum_seance
+                                    : "______"
+                            )}
+                    },
+
+
+                    {header:"مقدار بدهکاری",
+                        // subHeader:moneyFormat(251255023),
+                        subHeader:"_____",
+                        classes:"border-r5-Burning-Orange"
+                    },
+                    {header:"مبلغ کل پرداخت شده",
+                        // subHeader:moneyFormat(5123511),
+                        subHeader:"_____",
+
+                        classes:"border-r5-Charade"
+                    },
+
+                ]);
+
+                // **********************sec 1-2
+
+                const [UserInfo, setUserInfo] = useState([
+                    {header: cellInformation.original.name,
+                        classes:"Fs-16"
+                    },
+                    {header:"بازیکن",
+                        classes:"Fs-16"
+                    },
+                    {header:"۰۹۱۱۲۵۸۷۲۳۱",
+                        classes:"Fs-16"
+                    },
+                ]);
+
+            // ********************** sec 2 table
+                const ProfileWeek = cellInformation.original.sum_seance_in_days_of_week
+                const Sum_Week = ProfileWeek[0] + ProfileWeek[1] + ProfileWeek[2] + ProfileWeek[3] + ProfileWeek[4] + ProfileWeek[5] + ProfileWeek[6]
+                const Data_table1 = React.useMemo(
+
+                    () => [
+                        {
+                            Saturday: ProfileWeek[0],
+                            Sunday: ProfileWeek[1],
+                            Monday: ProfileWeek[2],
+                            Tuesday: ProfileWeek[3],
+                            Wednesday: ProfileWeek[4],
+                            Thursday: ProfileWeek[5],
+                            Friday: ProfileWeek[6],
+                            SumWeek: Sum_Week
+                        }
+                    ],
+                    []
+                )
+
+                const columns_table1 = React.useMemo(
+                    () => [
+
+                        {
+                            Header: 'شنبه',
+                            accessor: 'Saturday', // accessor is the "key" in the data
+                        },
+                        {
+                            Header: 'یک شنبه',
+                            accessor: 'Sunday',
+                        },
+                        {
+                            Header: 'دوشنبه',
+                            accessor: 'Monday', // accessor is the "key" in the data
+                        },
+                        {
+                            Header: 'سه‌شنبه',
+                            accessor: 'Tuesday', // accessor is the "key" in the data
+                        },
+                        {
+                            Header: 'چهارشنبه',
+                            accessor: 'Wednesday',
+                        },
+                        {
+                            Header: 'پنجشنبه',
+                            accessor: 'Thursday', // accessor is the "key" in the data
+                        }
+                        ,
+                        {
+                            Header: 'جمعه',
+                            accessor: 'Friday',
+                        },
+                        {
+                            Header: 'کل هفته',
+                            accessor: 'SumWeek',
+                        },
+                    ],
+                    []
+                )
+
+                // ********************** sec 3
+
+                const [listfilters, setlistfilters] = useState([
+                    {header:"تمام شده",
+                        classes:"bg-White-Smoke"
+                    },
+                    {header:"لغو شده",
+                        classes:"bg-White-Smoke"
+                    },
+                    {header:"فعال",
+                        classes:"bg-White-Smoke"
+                    },
+                    {header:"در محل",
+                        classes:"bg-White-Smoke"
+                    },
+                    {header:"آنلاین",
+                        classes:"bg-White-Smoke"
+                    },
+                    {header: "پرداخت نشده",
+                        classes:"bg-White-Smoke"
+                    },
+                    {header: "فیلترها:",
+                        classes:"rtl"
+                    }
+                ]);
+
+
 
     // **********************sec 1-1
-    const [userStatistic, setUserStatistic] = useState([
-        {
-            header:"مجموع ساعات رزرو شده",
-            subHeader:cellInformation.original.sum_seance,
-            classes:"border-r5-Charade",
-            Cell: function Cell(cell) {
-                console.log(cell.value)
-                return (
-                    cell.value!==null? cellInformation.original.sum_seance
-                        : "______"
-                )}
-        },
 
-
-        {header:"پرداختی در محل در ماه",
-            // subHeader:moneyFormat(26512585),
-            subHeader:"_____",
-            classes:"border-r5-Charade"
-        },
-        {header:"پرداختی آنلاین در ماه",
-            // subHeader:moneyFormat(2555023),
-            subHeader:"_____",
-            classes:"border-r5-Charade"
-        },
-
-        {
-            header:"ساعت رزرو شده در ماه",
-            subHeader:cellInformation.original.sum_seance_in_month,
-            classes:"border-r5-Charade",
-            Cell: function Cell(cell) {
-                console.log(cell.value)
-                return (
-                    cell.value!==null? cellInformation.original.sum_seance
-                        : "______"
-                )}
-        },
-
-
-        {header:"مقدار بدهکاری",
-            // subHeader:moneyFormat(251255023),
-            subHeader:"_____",
-            classes:"border-r5-Burning-Orange"
-        },
-        {header:"مبلغ کل پرداخت شده",
-            // subHeader:moneyFormat(5123511),
-            subHeader:"_____",
-
-            classes:"border-r5-Charade"
-        },
-
-    ]);
-
-    // **********************sec 1-2
-
-    const [UserInfo, setUserInfo] = useState([
-        {header: cellInformation.original.name,
-            classes:"Fs-16"
-        },
-        {header:"بازیکن",
-            classes:"Fs-16"
-        },
-        {header:"۰۹۱۱۲۵۸۷۲۳۱",
-            classes:"Fs-16"
-        },
-    ]);
-
-// ********************** sec 2 table
-    const ProfileWeek = cellInformation.original.sum_seance_in_days_of_week
-    const Sum_Week = ProfileWeek[0] + ProfileWeek[1] + ProfileWeek[2] + ProfileWeek[3] + ProfileWeek[4] + ProfileWeek[5] + ProfileWeek[6]
-    const Data_table1 = React.useMemo(
-
-        () => [
-            {
-                Saturday: ProfileWeek[0],
-                Sunday: ProfileWeek[1],
-                Monday: ProfileWeek[2],
-                Tuesday: ProfileWeek[3],
-                Wednesday: ProfileWeek[4],
-                Thursday: ProfileWeek[5],
-                Friday: ProfileWeek[6],
-                SumWeek: Sum_Week
-            }
-        ],
-        []
-    )
-
-    const columns_table1 = React.useMemo(
-        () => [
-
-            {
-                Header: 'شنبه',
-                accessor: 'Saturday', // accessor is the "key" in the data
-            },
-            {
-                Header: 'یک شنبه',
-                accessor: 'Sunday',
-            },
-            {
-                Header: 'دوشنبه',
-                accessor: 'Monday', // accessor is the "key" in the data
-            },
-            {
-                Header: 'سه‌شنبه',
-                accessor: 'Tuesday', // accessor is the "key" in the data
-            },
-            {
-                Header: 'چهارشنبه',
-                accessor: 'Wednesday',
-            },
-            {
-                Header: 'پنجشنبه',
-                accessor: 'Thursday', // accessor is the "key" in the data
-            }
-            ,
-            {
-                Header: 'جمعه',
-                accessor: 'Friday',
-            },
-            {
-                Header: 'کل هفته',
-                accessor: 'SumWeek',
-            },
-        ],
-        []
-    )
-
-    // ********************** sec 3
-
-    const [listfilters, setlistfilters] = useState([
-        {header:"تمام شده",
-            classes:"bg-White-Smoke"
-        },
-        {header:"لغو شده",
-            classes:"bg-White-Smoke"
-        },
-        {header:"فعال",
-            classes:"bg-White-Smoke"
-        },
-        {header:"در محل",
-            classes:"bg-White-Smoke"
-        },
-        {header:"آنلاین",
-            classes:"bg-White-Smoke"
-        },
-        {header: "پرداخت نشده",
-            classes:"bg-White-Smoke"
-        },
-        {header: "فیلترها:",
-            classes:"rtl"
-        }
-    ]);
 
     // ************************************************ sec 3 table Start ************************************************
 
@@ -223,7 +229,6 @@ const Userinfo = (props) => {
         ],
         []
     )
-
     //************************************************ sec 3 table End ************************************************
 
 
@@ -240,7 +245,7 @@ const Userinfo = (props) => {
 
             <div className='w-100 flex-center flex-column'>
                 {/*menu Top*/}
-                {/*<TopBar />*/}
+                <TopBar />
                 <div className="flex-center flex-column col-11 br-16  mt-32 bg-white p-s16-m32-lg48-xl48 "   >
                     {/************************************************ Sec 1 ************************************************/}
                     <BorderTemplate class={"mt-26 br-14 p-24"}>
@@ -336,6 +341,7 @@ const Userinfo = (props) => {
 
                             </div>
                         </div>
+
 
                         <hr/>
 

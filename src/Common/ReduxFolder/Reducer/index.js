@@ -3,14 +3,14 @@ import { combineReducers}from 'redux'
 import {Login} from './Login'
 import {CounterReducer} from "./CounterReducer";
 
-import {SearchUser} from "./SearchUser";
-import {ApiData} from "./ApiData";
-import {Userinfo} from "./Userinfo";
+import {loading} from "./SearchUser/loading";
+import {ApiData} from "./SearchUser/ApiData";
 import {ModalSearchUser} from "./Modal";
+import {Userinfo} from "./Userinfo/Userinfo";
 
 
 export default combineReducers({
 
-    Login,CounterReducer,SearchUser,ApiData,Userinfo,ModalSearchUser
+    Login,CounterReducer,loading,ApiData,ModalSearchUser,Userinfo
 
 })

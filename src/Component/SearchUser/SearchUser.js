@@ -2,8 +2,8 @@ import React, {useState, useContext, useEffect, useReducer} from 'react';
 
 import {useDispatch, useSelector } from 'react-redux'
 
-import {SetLoading } from "../../../src/Common/ReduxFolder/Action/SearchUser";
-import {SetApiData } from "../../../src/Common/ReduxFolder/Action/ApiData";
+import {SetLoading } from "../../Common/ReduxFolder/Action/SearchUser/loading";
+import {SetApiData } from "../../Common/ReduxFolder/Action/SearchUser/ApiData";
 
 // *********************** import axios
 import api, {baseURL} from "../../Common/api/SearchApi";
@@ -37,7 +37,7 @@ const SearchUser = (props) => {
 
 
     // const loading = useSelector(state => state.SearchUser.loading);
-    const loading = useSelector(state => state.SearchUser.loading);
+    const loading = useSelector(state => state.loading.loading);
     const ApiData = useSelector(state => state.ApiData.DataSearchUser);
 
     const Dispatch = useDispatch();

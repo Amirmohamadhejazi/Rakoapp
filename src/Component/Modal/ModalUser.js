@@ -30,6 +30,13 @@ import {useSelector} from "react-redux";
 
 const ModalUser = (props) => {
 
+    const DataRow = useSelector(state => state.Userinfo.DataRowTable);
+
+    useEffect(()=>{
+        console.log(DataRow)
+    },[DataRow])
+
+
 
     const ModalSearchUser = useSelector(state => state.ModalSearchUser.Modal);
     return (

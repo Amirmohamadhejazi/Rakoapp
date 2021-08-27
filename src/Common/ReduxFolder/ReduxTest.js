@@ -72,7 +72,6 @@ const ReduxTest = (props) => {
             <ModalUser>
                 <TopBar/>
 
-
             </ModalUser>
         </div>
         // <div className='w-100 flex-center flex-column'>

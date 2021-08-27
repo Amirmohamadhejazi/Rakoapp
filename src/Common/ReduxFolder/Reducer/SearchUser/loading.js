@@ -2,7 +2,7 @@ let initial={
     loading:true,
 }
 
-export const SearchUser = (state= initial, action) => {
+export const loading = (state= initial, action) => {
     switch (action.type) {
         case 'Setloading':
             return {
@@ -13,6 +13,5 @@ export const SearchUser = (state= initial, action) => {
             break;
         default:
             return state;
-            break;
     }
 }
