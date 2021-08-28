@@ -11,3 +11,4 @@ export const Decrease_Number="Decrease_Number";
 
 
 export const SetDataRow="SetDataRow";
+export const GetUserInfo="GetUserInfo";

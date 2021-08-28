@@ -6,11 +6,11 @@ import {CounterReducer} from "./CounterReducer";
 import {loading} from "./SearchUser/loading";
 import {ApiData} from "./SearchUser/ApiData";
 import {ModalSearchUser} from "./Modal";
-import {Userinfo} from "./Userinfo/Userinfo";
+import {UserInfo} from "./UserInfo/UserInfo";
 
 
 export default combineReducers({
 
-    Login,CounterReducer,loading,ApiData,ModalSearchUser,Userinfo
+    Login,CounterReducer,loading,ApiData,ModalSearchUser,UserInfo
 
 })

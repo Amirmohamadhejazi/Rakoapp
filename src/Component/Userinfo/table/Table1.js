@@ -1,14 +1,72 @@
 import React, {useEffect, useContext} from 'react';
 import { useTable } from 'react-table';
+import {useSelector} from "react-redux";
 
-import DataContext from "../context/UserInfoContext";
 
 const Table1 = (props) => {
 
-    const dataContext = useContext(DataContext)
+    let eachData = useSelector(state => state.UserInfo.eachData);
 
-    const data= dataContext.Data_table1
-    const columns= dataContext.columns_table1
+    const ProfileWeek = eachData.original.sum_seance_in_days_of_week
+    const Sum_Week = ProfileWeek[0] + ProfileWeek[1] + ProfileWeek[2] + ProfileWeek[3] + ProfileWeek[4] + ProfileWeek[5] + ProfileWeek[6]
+    const Data_table1 = React.useMemo(
+        () => [
+            {
+                Saturday: ProfileWeek[0],
+                Sunday: ProfileWeek[1],
+                Monday: ProfileWeek[2],
+                Tuesday: ProfileWeek[3],
+                Wednesday: ProfileWeek[4],
+                Thursday: ProfileWeek[5],
+                Friday: ProfileWeek[6],
+                SumWeek: Sum_Week
+            }
+        ],
+        []
+    )
+
+    const columns_table1 = React.useMemo(
+        () => [
+
+            {
+                Header: 'شنبه',
+                accessor: 'Saturday', // accessor is the "key" in the data
+            },
+            {
+                Header: 'یک شنبه',
+                accessor: 'Sunday',
+            },
+            {
+                Header: 'دوشنبه',
+                accessor: 'Monday', // accessor is the "key" in the data
+            },
+            {
+                Header: 'سه‌شنبه',
+                accessor: 'Tuesday', // accessor is the "key" in the data
+            },
+            {
+                Header: 'چهارشنبه',
+                accessor: 'Wednesday',
+            },
+            {
+                Header: 'پنجشنبه',
+                accessor: 'Thursday', // accessor is the "key" in the data
+            }
+            ,
+            {
+                Header: 'جمعه',
+                accessor: 'Friday',
+            },
+            {
+                Header: 'کل هفته',
+                accessor: 'SumWeek',
+            },
+        ],
+        []
+    )
+
+    const data= Data_table1
+    const columns= columns_table1
 
     const {
         getTableProps,
@@ -20,11 +78,8 @@ const Table1 = (props) => {
     } = useTable({ columns, data })
 
         return (
-
             <table {...getTableProps()} className="w-100 rtl mt-26">
-
                     <thead>
-
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                                 {headerGroup.headers.map(column => (
@@ -56,7 +111,6 @@ const Table1 = (props) => {
                     </tbody>
 
             </table>
-
         )
 
 }

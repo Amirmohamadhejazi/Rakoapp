@@ -45,9 +45,9 @@ import { Show , Hide} from "./Action/Modal";
 //component
 
 import ModalUser from "../../Component/Modal/ModalUser";
-import DataContext from "../../Component/Userinfo/context/UsertablebtnContext";
+import DataContext from "../../Component/UserInfo/context/UsertablebtnContext";
 import React, {useReducer} from "react";
-import Userinfo from "../../Component/Userinfo/Userinfo";
+import Userinfo from "../../Component/UserInfo/UserInfo";
 import TopBar from "../../Component/TopBar";
 
 

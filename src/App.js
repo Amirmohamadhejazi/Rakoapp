@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Redirect, Route, Switch} from 'react-router-dom';
 import {UserContext} from "./Common/componennt/Provider/UserProvider";
 import Login from "./Component/Login/Login";
-import Userinfo from "./Component/Userinfo/Userinfo";
+import UserInfo from "./Component/UserInfo/UserInfo";
 import Statistic from "./Component/Statistic/Statistic";
 import SearchUser from "./Component/SearchUser/SearchUser";
 import ReduxTest from "./Common/ReduxFolder/ReduxTest";

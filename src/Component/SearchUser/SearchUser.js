@@ -21,7 +21,7 @@ import { useTable, useRowSelect } from 'react-table'
 
 // *********************** import componnet
 import CommonTable from "./table/common table"
-import Usertablebtn from "../Userinfo/Usertablebtn";
+import Usertablebtn from "../UserInfo/Usertablebtn";
 import data from "bootstrap/js/src/dom/data";
 import Loading from "./../Loading";
 import TopBar from "../TopBar";

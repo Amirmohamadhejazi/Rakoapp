@@ -1,5 +1,5 @@
 import {baseURL} from "../../../api/SearchApi";
-import Usertablebtn from "../../../../Component/Userinfo/Usertablebtn";
+import Usertablebtn from "../../../../Component/UserInfo/Usertablebtn";
 import React from "react";
 
 let initial={
@@ -34,8 +34,9 @@ let initial={
     {
         Header: 'اکشن',
         Cell: function Cell(cell) {
+
             return (
-                <Usertablebtn classParent={"border1-Charade br-4 flex-center " } id={cell.row} classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
+                <Usertablebtn classParent={"border1-Charade br-4 flex-center " } dataRows={cell.row} id={cell.row.index} classChild={"Fs-10 c-Charade"} text={"تسویه بدهی"}/>
             )}
 
 
@@ -45,6 +46,7 @@ let initial={
 
 
 ],
+
 }
 
 export const ApiData = (state= initial, action) => {
