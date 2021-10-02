@@ -1,7 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { BsChatDots, IoClose, IoSettingsOutline} from "react-icons/all";
-import DataContext from "../Component/Userinfo/context/UsertablebtnContext";
+// import DataContext from "../Component/Userinfo/context/UsertablebtnContext";
 import api from "../Common/api/SearchApi";
+
+import {useDispatch, useSelector } from 'react-redux'
+
+import {Hide} from "../Common/ReduxFolder/Action/Modal";
+
 
 const IconHeader=(props)=>{
     return(
@@ -16,7 +21,9 @@ const IconHeader=(props)=>{
 }
 
 const TopBar = (props) => {
-    const dataContext = useContext(DataContext)
+    const dispatch = useDispatch();
+
+    // const dataContext = useContext(DataContext)
     return (
         <div className='col-11 d-flex justify-content-between align-items-center   mt-32'>
             <div className="  flex-center h-100 ps-4" >
@@ -38,8 +45,7 @@ const TopBar = (props) => {
 
             </div>
 
-
-            <IconHeader parentClass="mr-auto  align-items-center h-100 cursor-pointer"  childClass='bg-Iron' onClick={()=>{dataContext.toggleModal()}}>
+            <IconHeader parentClass="mr-auto  align-items-center h-100 cursor-pointer"  childClass='bg-Iron' onClick={() => dispatch(Hide(false))}>
                 <IoClose className=" Fs-s25-m34-lg34-xl34 c-Charade " />
             </IconHeader>
 

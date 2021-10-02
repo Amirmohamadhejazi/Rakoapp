@@ -1,51 +1,45 @@
-import React, {useState, useEffect, useContext, useReducer} from 'react';
-// import component
-import Userinfo from "./Userinfo";
-import ModalUser from "../Modal/ModalUser";
-import Modal from 'react-bootstrap/Modal'
-import DataContext from "./context/UsertablebtnContext";
+import {useDispatch, useSelector} from 'react-redux'
 
-import { IoClose} from "react-icons/all";
-import api, {baseURL} from "../../Common/api/SearchApi";
+import {Hide, Show} from "../../Common/ReduxFolder/Action/Modal";
 
-// import Reducer
-import UsertablebtnReducer from "./context/Reducer/UsertablebtnReducer";
+import {GetUserEachInfo} from "../../Common/ReduxFolder/Action/UserInfo/UserInfo";
+
+//component
+import {useState, useEffect} from 'react';
+
+import ModalUser from "../../Component/Modal/ModalUser";
+import DataContext from "../../Component/UserInfo/context/UsertablebtnContext";
+import React, {useReducer} from "react";
+import UserInfo from "./UserInfo";
+import TopBar from "../../Component/TopBar";
+import {SetApiData} from "../../Common/ReduxFolder/Action/SearchUser/ApiData";
 
 const Usertablebtn = (props) => {
 
 
-
-    const [state , dispatch] = useReducer(UsertablebtnReducer , {
-
-        ShowModal:false
-    })
-
-    const [showModal, setshowModal] = useState(false);
-    let ShowHidden=state.ShowModal;
-    const toggleModal=()=>dispatch({type: "toggleModal" , payload:{data:ShowHidden} })
-
-
-
-
-
-    let value={
-        ShowModal:state.ShowModal,
-        toggleModal
-    }
+    const dispatch = useDispatch();
 
     return (
-        <DataContext.Provider value={value} >
-
-                <div className="w-100 d-flex justify-content-center" id="modal_dialog">
-                    <div onClick={() => dispatch({type: "ShowModal"})}  className={["W-80 H-30 cursor-pointer" ,props.classParent].join(" ")}>
-                        <span className={props.classChild}>{props.text}</span>
-                    </div>
+        <>
+            <div className="w-100 d-flex justify-content-center" id="modal_dialog">
+                <div onClick={() => {
+                    dispatch(Show(true))
+                    dispatch(GetUserEachInfo(props.dataRows))
+                }}
+                     className={["W-80 H-30 cursor-pointer", props.classParent].join(" ")}>
+                    <span className={props.classChild}>{props.text}</span>
                 </div>
-                <ModalUser>
-                    <Userinfo id={props.id}/>
-                </ModalUser>
+            </div>
+            <ModalUser>
+                <TopBar/>
+                <UserInfo />
+                {/*/!*hi*!/*/}
 
-        </DataContext.Provider>
+                {/*<div className="w-100 bg-danger" style={{height:"500px"}}>*/}
+                {/*    Modal*/}
+                {/*</div>*/}
+            </ModalUser>
+        </>
     )
 }
 

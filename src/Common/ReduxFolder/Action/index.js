@@ -1,7 +1,4 @@
-
- import * as Const  from "./../const/index"
-
-
+import * as Const  from "./../const/index"
 
 // ***************Login*************
  export  const   Increase_Number=(counter)=>({
@@ -10,5 +7,5 @@
  });
 export  const   Decrease_Number=(counter)=>({
      type: Const.Decrease_Number,
-    counter:counter,
+     counter:counter,
  });

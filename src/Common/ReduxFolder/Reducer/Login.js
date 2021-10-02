@@ -17,7 +17,7 @@ export const Login = (state= initial, action) => {
         case (Const.ADD_TOKEN):
             return {...state,
                 token:action.token
-            }
+    }
 
         default:
             return state
