@@ -2,9 +2,10 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import {Hide, Show} from "../../Common/ReduxFolder/Action/Modal";
 
-import {GetUserEachInfo} from "../../Common/ReduxFolder/Action/UserInfo/UserInfo";
+import {GetUserEachInfo} from "../../Common/ReduxFolder/Action/Userinfo/UserInfo";
 
-//component
+// component
+
 import {useState, useEffect} from 'react';
 
 import ModalUser from "../../Component/Modal/ModalUser";
@@ -21,6 +22,7 @@ const Usertablebtn = (props) => {
 
     return (
         <>
+
             <div className="w-100 d-flex justify-content-center" id="modal_dialog">
                 <div onClick={() => {
                     dispatch(Show(true))
@@ -33,11 +35,6 @@ const Usertablebtn = (props) => {
             <ModalUser>
                 <TopBar/>
                 <UserInfo />
-                {/*/!*hi*!/*/}
-
-                {/*<div className="w-100 bg-danger" style={{height:"500px"}}>*/}
-                {/*    Modal*/}
-                {/*</div>*/}
             </ModalUser>
         </>
     )
