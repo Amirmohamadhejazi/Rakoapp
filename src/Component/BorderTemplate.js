@@ -1,7 +1,4 @@
-import React from 'react';
-
-
-// import {UseSideAnimate} from "../../Common/componennt/Hooks/UseSideAnimate/UseSideAnimate";
+import React from 'react'
 
 const BorderTemplate = (props) => {
     return (
@@ -10,8 +7,6 @@ const BorderTemplate = (props) => {
         </div>
     )
 
-
 }
-
 
 export default BorderTemplate;
